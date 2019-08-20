@@ -10,15 +10,11 @@ import { BankerhomeComponent } from './bankerhome/bankerhome.component';
 import { SidebarbankerComponent } from './sidebarbanker/sidebarbanker.component';
 import { BankerloginComponent } from './bankerlogin/bankerlogin.component';
 import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';
-<<<<<<< HEAD
-import { HttpClientModule } from '@angular/common/http';
-=======
 import { AccountRegistrationComponent } from './account-registration/account-registration.component';
 import { CustomerDeleteComponent } from './customer-delete/customer-delete.component';
 import { AccountDeleteComponent } from './account-delete/account-delete.component';
 import { CustomerModifyComponent } from './customer-modify/customer-modify.component';
->>>>>>> 2425cd28369ed1b27e907d87308a6e8853916f87
-
+import { HttpClientModule } from '@angular/common/http';
 const routes:Routes=[
   {path:'',component:HomeComponent},
   {path:'bankerlogin',component:BankerloginComponent},
@@ -41,12 +37,8 @@ const routes:Routes=[
   imports: [
     BrowserModule,
     AppRoutingModule,
-<<<<<<< HEAD
-    HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(routes)
-  ],
-=======
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path:'',
@@ -84,7 +76,6 @@ const routes:Routes=[
     }
     ])
    ],
->>>>>>> 2425cd28369ed1b27e907d87308a6e8853916f87
   providers: [],
   bootstrap: [AppComponent]
 })
