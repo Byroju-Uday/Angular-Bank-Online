@@ -1,15 +1,34 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../customer.service';
+import { Router } from '@angular/router';
+import { Customer } from '../Customer';
 
 @Component({
   selector: 'app-customer-registration',
   templateUrl: './customer-registration.component.html',
   styleUrls: ['./customer-registration.component.css']
 })
-export class CustomerRegistrationComponent implements OnInit {
+export class CustomerRegistrationComponent {
 
-  constructor() { }
+  constructor(private customerService:CustomerService,private router :Router) { }
 
-  ngOnInit() {
-  }
+  handleFormData(data:Customer){
+    console.log(data);
+    let customer:Customer = new Customer();
+    customer.customerId = data.customerId;
+    customer.customerName = data.customerName;
+    customer.address = data.address;
+    customer.aadharNo = data.aadharNo;
+    customer.dob = data.dob;
+    customer.emailId = data.emailId;
+    customer.pancardNo = data.pancardNo;
+    customer.password = data.password;
+    customer.phoneNo = data.phoneNo;
+    this.customerService.saveCustomer(customer).subscribe(response => {
+      console.log('Response');
+      console.log(response);
+      this.router.navigate(['/']);
+    })
+   }
 
 }
