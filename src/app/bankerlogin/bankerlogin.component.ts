@@ -15,7 +15,7 @@ export class BankerloginComponent implements OnInit {
   }
   login()
   {
-    this.router.navigate(['/bankerhome']);
+    this.router.navigate(['banker']);
   }
 
 }

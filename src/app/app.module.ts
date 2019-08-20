@@ -10,14 +10,17 @@ import { BankerhomeComponent } from './bankerhome/bankerhome.component';
 import { SidebarbankerComponent } from './sidebarbanker/sidebarbanker.component';
 import { BankerloginComponent } from './bankerlogin/bankerlogin.component';
 import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';
-<<<<<<< HEAD
 import { HttpClientModule } from '@angular/common/http';
-=======
+import { SidebarcustomerComponent } from './sidebarcustomer/sidebarcustomer.component';
 import { AccountRegistrationComponent } from './account-registration/account-registration.component';
 import { CustomerDeleteComponent } from './customer-delete/customer-delete.component';
 import { AccountDeleteComponent } from './account-delete/account-delete.component';
 import { CustomerModifyComponent } from './customer-modify/customer-modify.component';
->>>>>>> 2425cd28369ed1b27e907d87308a6e8853916f87
+import { CustomerhomeComponent } from './customerhome/customerhome.component';
+import { CustomerprofileComponent } from './customerprofile/customerprofile.component';
+import { MinistatementComponent } from './ministatement/ministatement.component';
+import { MoneytransferComponent } from './moneytransfer/moneytransfer.component';
+import { CustomerloginComponent } from './customerlogin/customerlogin.component';
 
 const routes:Routes=[
   {path:'',component:HomeComponent},
@@ -36,21 +39,31 @@ const routes:Routes=[
     AccountRegistrationComponent,
     CustomerDeleteComponent,
     AccountDeleteComponent,
-    CustomerModifyComponent
+    CustomerModifyComponent,
+    SidebarcustomerComponent,
+    CustomerhomeComponent,
+    CustomerprofileComponent,
+    MinistatementComponent,
+    MoneytransferComponent,
+    CustomerloginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-<<<<<<< HEAD
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(routes)
-  ],
-=======
     RouterModule.forRoot([
       {
         path:'',
         component:HomeComponent
+      },
+      {
+        path:'bankerLogin',
+        component:BankerloginComponent
+      },
+      {
+        path:'customerLogin',
+        component:CustomerloginComponent
       },
       {
         path:'banker',
@@ -81,10 +94,31 @@ const routes:Routes=[
             component: AccountDeleteComponent
           }
       ]
-    }
+    },
+    {
+      path:'customer',
+      component: CustomerhomeComponent,
+      children:[
+        {
+          path:'',
+          component: CustomerprofileComponent
+        },
+        {
+          path:'myProfile',
+          component: CustomerprofileComponent
+        },
+        {
+          path:'fundTransfer',
+          component: MoneytransferComponent
+        },
+        {
+          path:'myStatement',
+          component: MinistatementComponent
+        }
+       ]
+      }
     ])
    ],
->>>>>>> 2425cd28369ed1b27e907d87308a6e8853916f87
   providers: [],
   bootstrap: [AppComponent]
 })
