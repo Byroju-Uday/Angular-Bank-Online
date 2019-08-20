@@ -1,0 +1,18 @@
+.bg-1{
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(../../assets/images/home.jpg)no-repeat center fixed;
+    background-size:cover;
+    
+}
+.col1 h1{
+
+    color:white;
+    font-family: 'Roboto Slab', serif;
+    font-size: 70px;
+    padding:20px;
+}
+.col1 p{
+    font-size: 40px;
+    padding:10px;
+    color:white;
+    font-family: 'Pacifico', cursive;
+}
