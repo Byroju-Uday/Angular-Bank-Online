@@ -84,8 +84,8 @@ const routes:Routes=[
             component: CustomerModifyComponent
           },
           {
-            path:'modifyCustomer/:customerId',
-            component:CustomerModifyComponent
+            path:'modifySpecificCustomer/:customerId',
+            component:ModifySpecificCustomerComponent
           },
           {
             path:'deleteCustomer',

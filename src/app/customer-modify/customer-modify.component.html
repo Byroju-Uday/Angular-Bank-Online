@@ -17,10 +17,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let customer of customers">
-        <td><a [routerLink]="['/customers',customer.id]" 
+        <td><a [routerLink]="['../modifySpecificCustomer',customer.customerId]" 
           routerLinkActive="router-link-active">  {{customer.customerId}}</a></td>
-        <td><a [routerLink]="['/customers',customer.id]" 
+        <td><a [routerLink]="['../modifySpecificCustomer',customer.customerId]" 
           routerLinkActive="router-link-active"> {{customer.customerName}}</a></td> 
       </tr>
     </tbody>
   </table>
+  <router-outlet></router-outlet>
