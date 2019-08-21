@@ -21,6 +21,7 @@ import { CustomerprofileComponent } from './customerprofile/customerprofile.comp
 import { MinistatementComponent } from './ministatement/ministatement.component';
 import { MoneytransferComponent } from './moneytransfer/moneytransfer.component';
 import { CustomerloginComponent } from './customerlogin/customerlogin.component';
+import { ModifySpecificCustomerComponent } from './modify-specific-customer/modify-specific-customer.component';
 
 const routes:Routes=[
   {path:'',component:HomeComponent},
@@ -45,7 +46,8 @@ const routes:Routes=[
     CustomerprofileComponent,
     MinistatementComponent,
     MoneytransferComponent,
-    CustomerloginComponent
+    CustomerloginComponent,
+    ModifySpecificCustomerComponent
   ],
   imports: [
     BrowserModule,
@@ -80,6 +82,10 @@ const routes:Routes=[
           {
             path:'modifyCustomer',
             component: CustomerModifyComponent
+          },
+          {
+            path:'modifyCustomer/:customerId',
+            component:CustomerModifyComponent
           },
           {
             path:'deleteCustomer',

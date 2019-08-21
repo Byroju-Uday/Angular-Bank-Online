@@ -9,8 +9,9 @@ import { CustomerCredentials } from './CustomerCredentials';
 })
 export class CustomerService {
 
-  private USER_API_URL = "http://localhost:8080/employee/";
+  private USER_API_URL_SAVE = "http://localhost:8080/employee/";
   private CUSTOMER_API_URL = "http://localhost:8080/customer/"
+  private USER_API_URL = "http://localhost:8080/customer/profile"
 
   customers:any[]=[];
 
@@ -19,7 +20,7 @@ export class CustomerService {
 
   saveCustomer(customer:Customer):Observable<any>{
     console.log("Inside the saveCustomer")
-    return this.httpClient.post(this.USER_API_URL, customer);
+    return this.httpClient.post(this.USER_API_URL_SAVE, customer);
   }
 
   validateCustomerLoginCredentials(customerCredentials:CustomerCredentials):Observable<any>{
@@ -27,4 +28,16 @@ export class CustomerService {
     console.log(JSON.stringify(customerCredentials));
     return this.httpClient.post(this.CUSTOMER_API_URL+"customerLoginValidation",customerCredentials);
   }
+  getCustomerDetails(customerId:number):Observable <Customer>{
+    console.log("Inside the Get Customer");
+    console.log(customerId);
+    // customerId=1;
+    return this.httpClient.get<Customer>(this.USER_API_URL+"/"+customerId);
+  }
+
+  listCustomers():Observable<Customer[]>{
+    return this.httpClient.get<Customer[]>(this.CUSTOMER_API_URL+"/customers");
+   }
+
+  
 }
