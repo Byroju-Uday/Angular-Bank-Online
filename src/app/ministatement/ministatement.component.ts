@@ -15,6 +15,7 @@ export class MinistatementComponent implements OnInit {
   fromDate : Date;
   toDate : Date;
   accountId:number;
+  pageCount:number = 5;
   constructor(private transactionService:TransactionService) { }
   temporary_Transactions:Transaction[];
 

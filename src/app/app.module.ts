@@ -22,6 +22,7 @@ import { MinistatementComponent } from './ministatement/ministatement.component'
 import { MoneytransferComponent } from './moneytransfer/moneytransfer.component';
 import { CustomerloginComponent } from './customerlogin/customerlogin.component';
 import { ModifySpecificCustomerComponent } from './modify-specific-customer/modify-specific-customer.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 const routes:Routes=[
   {path:'',component:HomeComponent},
@@ -54,6 +55,7 @@ const routes:Routes=[
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgxPaginationModule,
     RouterModule.forRoot([
       {
         path:'',
