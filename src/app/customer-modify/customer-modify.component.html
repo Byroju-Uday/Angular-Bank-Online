@@ -1,3 +1,27 @@
-<p>
-  customer-modify works!
-</p>
+<!-- <ul>
+  <li *ngFor="let customer of customers">
+
+
+    <a [routerLink]="['/customers',customer.id]" 
+    routerLinkActive="router-link-active"> {{customer.customerName}} {{customer.customerId}}</a>
+  </li>
+</ul> -->
+<!-- <h2>Customer Modification</h2>
+<h1>{{currentCustomer.customerId}}</h1> -->
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">CustomerID</th>
+        <th scope="col">CustomerName</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <td><a [routerLink]="['../modifySpecificCustomer',customer.customerId]" 
+          routerLinkActive="router-link-active">  {{customer.customerId}}</a></td>
+        <td><a [routerLink]="['../modifySpecificCustomer',customer.customerId]" 
+          routerLinkActive="router-link-active"> {{customer.customerName}}</a></td> 
+      </tr>
+    </tbody>
+  </table>
+  <router-outlet></router-outlet>

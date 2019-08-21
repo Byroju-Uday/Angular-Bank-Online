@@ -1,31 +1,54 @@
 <div class="container" id="accountRegistration">
 	<h1>Account Details</h1>
 	<div class="container" id="AddAccount">
-		<form action="/employee/createaccount" method="POST" modelAttribute="account">
-			<div class="form-row">
-					<div class="form-group col-md-6">
-						<label for="customerId">Customer Id</label>
-            <input path="customerId" type="number" class="form-control" id="customerId" placeholder="Enter Customer Id" />
-          </div>
-          <div class="form-group col-md-6">
+		<form ngForm #form = "ngForm" 
+		(ngSubmit)="handleFormData(form.value)"
+		action="/employee/register" 
+		method="POST" modelAttribute="account">
+		<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="customerId">Customer Id</label>
+			        <input path="customerId" type="number" 
+			        ngModel 
+                    required
+			        #customerId="ngModel"
+			        name="customerId"
+			        class="form-control" id="customerId" placeholder="Enter Customer Id" />
+                </div>
+                <div class="form-group col-md-6">
 				  	<label for="accountType">Account Type</label>
-				  	<select path="accountType" class="form-control"	id="accountType">
+					<select path="accountType" 
+					ngModel 
+                    required
+					#accountType="ngModel"
+					name="accountType"
+					class="form-control" id="accountType">
 					  	<option>Savings Account</option>
 					  	<option>Current Account</option>
 					  	<option>Salary Account</option>
-           </select>
-          </div>
-			</div>
-			<div class="form-row">
+                    </select>
+                 </div>
+		</div>
+		<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="accountNumber">Account Number</label>
-					<input path="accountNumber" type="number" class="form-control" id="accountNumber" placeholder="Enter Account Number" />
+					<input path="accountNumber" type="number" 
+					ngModel 
+                    required
+					#accountNumber="ngModel"
+					name="accountNumber"
+		            class="form-control" id="accountNumber" placeholder="Enter Account Number" />
 				</div>
 				<div class="form-group col-md-6">
 					<label for="accountBalance">Account Balance</label>
-					<input path="accountBalance" type="number" class="form-control" id="accountBalance" placeholder="Enter Account Balance" />
+					<input path="accountBalance" type="number" 
+					ngModel 
+					required
+					#accountBalance="ngModel"
+					name="accountBalance"
+					class="form-control" id="accountBalance" placeholder="Enter Account Balance" />
 				</div>
-			</div>
+		</div>
 		  <button type="submit" class="btn btn-primary">Create Account</button>
 		</form>
 	</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Customer } from '../Customer';
 
 @Component({
   selector: 'app-sidebarbanker',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarbankerComponent implements OnInit {
 
   constructor() { }
+  customer:Customer;
 
   ngOnInit() {
   }
