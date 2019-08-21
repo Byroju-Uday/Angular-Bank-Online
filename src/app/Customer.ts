@@ -7,7 +7,7 @@ export class Customer{
  customerId:number;
      customerName:string;
      password:string;
-    emailId:string;
+     emailId:string;
      pancardNo:string;
      address:string;
      phoneNo:number;
