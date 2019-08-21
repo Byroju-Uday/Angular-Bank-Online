@@ -10,8 +10,9 @@ import { CustomerCredentials } from './CustomerCredentials';
 export class CustomerService {
 
   private USER_API_URL_SAVE = "http://localhost:8080/employee/";
-  private CUSTOMER_API_URL = "http://localhost:8080/customer/"
-  private USER_API_URL = "http://localhost:8080/customer/profile"
+  private CUSTOMER_API_URL = "http://localhost:8080/customer/";
+  private USER_API_URL = "http://localhost:8080/customer/profile";
+  private USER_API_DELETE_URL = "http://localhost:8080/employee/delete";
 
   customers:any[]=[];
 
@@ -28,7 +29,7 @@ export class CustomerService {
     console.log(JSON.stringify(customerCredentials));
     return this.httpClient.post(this.CUSTOMER_API_URL+"customerLoginValidation",customerCredentials);
   }
-  getCustomerDetails(customerId:number):Observable <Customer>{
+  getCustomerDetails(customerId:number):Observable<Customer>{
     console.log("Inside the Get Customer");
     console.log(customerId);
     // customerId=1;
@@ -39,5 +40,10 @@ export class CustomerService {
     return this.httpClient.get<Customer[]>(this.CUSTOMER_API_URL+"/customers");
    }
 
+  deleteCustomer(customerId: number):Observable<number>{
+    console.log("Inside the delete Customer");
+    console.log(customerId)
+    return this.httpClient.get<number>(this.USER_API_DELETE_URL+"/"+customerId);
+  }
   
 }

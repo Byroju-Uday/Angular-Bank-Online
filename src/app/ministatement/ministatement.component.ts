@@ -18,9 +18,9 @@ export class MinistatementComponent implements OnInit {
   constructor(private transactionService:TransactionService) { }
 
   ngOnInit() {
-    this.accountId =4;
+    this.accountId = 4;
     this.transactionService.fetchTransactions(this.accountId).subscribe(transactions =>
-      this.transactions = transactions);
+    this.transactions = transactions);
   }
 
 
