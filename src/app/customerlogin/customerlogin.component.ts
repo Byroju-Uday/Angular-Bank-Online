@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CustomerCredentials } from '../CustomerCredentials';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-customerlogin',
@@ -9,14 +11,23 @@ import { Router } from '@angular/router';
 export class CustomerloginComponent implements OnInit {
 
   constructor(
-    private router:Router
-    ) { }
+    private router:Router,private customerService:CustomerService) { }
 
   ngOnInit() {
   }
-  login()
+  login(data:CustomerCredentials)
   {
-    this.router.navigate(['customer']);
+    let customerId = data.customerId;
+    let password = data.password;
+    console.log(`this is from login funtion`);
+    this.customerService.validateCustomerLoginCredentials(data).subscribe(response => {
+      console.log('Response from login function of customerlogin.component.ts');
+      console.log(response);
+      if(response===true)
+        this.router.navigate(['/customer']);
+      else
+        this.router.navigate(['/customerLogin']);
+    });
   }
 
 }

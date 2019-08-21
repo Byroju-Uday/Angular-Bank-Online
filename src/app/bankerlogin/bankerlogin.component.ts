@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { CustomerService } from '../customer.service';
+import { CustomerCredentials } from '../CustomerCredentials';
+import { BankerService } from '../banker.service';
 @Component({
   selector: 'app-bankerlogin',
   templateUrl: './bankerlogin.component.html',
@@ -8,14 +11,33 @@ import {Router} from '@angular/router';
 export class BankerloginComponent implements OnInit {
 //router injection
   constructor(
-    private router:Router
+    private router:Router,private bankerService:BankerService
     ) { }
 
   ngOnInit() {
   }
-  login()
+
+  login(data:{BankerId:number,password:string})
   {
-    this.router.navigate(['banker']);
+    let customerId = data.BankerId;
+    let password = data.password;
+    console.log(`this is from login funtion`);
+    // this.bankerService.validateBankerLoginCredentials(data).subscribe(response => {
+    //   console.log('Response from login function of customerlogin.component.ts');
+    //   console.log(response);
+    //   if(response===true)
+    //     this.router.navigate(['/banker']);
+    //   else
+    //     this.router.navigate(['/bankerLogin']);
+    // });
+    let ans = this.bankerService.validateBankerLoginCredentials(data)
+    if(ans) {
+      console.log("the login details are correct ....navigating to /banker")
+      this.router.navigate(['/banker']);
+    }
+    else{
+      this.router.navigate(['/bankerLogin']);
+    }
   }
 
 }

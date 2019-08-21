@@ -1,3 +1,34 @@
 <p>
   ministatement works!
 </p>
+
+<input type="date" [(ngModel)]="fromDate" name="fromDate"/>
+<input type="date" [(ngModel)]="toDate" name="toDate"/>
+
+{{fromDate}}
+<input type="button" id="submit" value="submit" (click)="filterTransactions()" />
+
+<table class="table table-dark table-hover">
+  <thead>
+    <tr>
+      <th>TransactionId</th>
+      <th>date</th>
+      <th>typeofTrans</th>
+      <th>transAmount</th>
+      <th>updatedBal</th>
+      <th>FromAccountId</th>
+      <th>ToAccountId</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let transaction of transactions">
+      <td>{{transaction.transactionId}}</td>
+      <td>{{transaction.date | date:"dd/MM/yyyy"}}</td>
+      <td>{{transaction.typeOfTransaction}}</td>
+      <td>{{transaction.transactionAmount}}</td>
+      <td>{{transaction.updatedBalance}}</td>
+      <td>{{transaction.fromAccountId}}</td>
+      <td> {{transaction.toAccountId}}</td>
+    </tr>
+  </tbody>
+</table>
