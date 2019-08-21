@@ -13,6 +13,7 @@ export class CustomerService {
   private CUSTOMER_API_URL = "http://localhost:8080/customer/";
   private USER_API_URL = "http://localhost:8080/customer/profile";
   private USER_API_DELETE_URL = "http://localhost:8080/employee/delete";
+  private USER_API_URL_UPDATE = "http://localhost:8080/employee/profile";
 
   customers:any[]=[];
 
@@ -44,6 +45,12 @@ export class CustomerService {
     console.log("Inside the delete Customer");
     console.log(customerId)
     return this.httpClient.get<number>(this.USER_API_DELETE_URL+"/"+customerId);
+  }
+   updateCustomer(customerId: number, customer:Customer):Observable<Customer>{
+     console.log("inside the updatecustomer");
+     console.log(this.USER_API_URL_UPDATE);
+     console.log(customerId);
+      return this.httpClient.put<Customer>(this.USER_API_URL_UPDATE+"/"+customerId, customer);
   }
   
 }

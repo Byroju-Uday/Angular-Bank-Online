@@ -17,27 +17,29 @@ export class CustomerModifyComponent implements OnInit {
 
 
   private currentUserSubscription:Subscription;
-  constructor(route:ActivatedRoute,private customerSevice:CustomerService) {
+  // constructor(route:ActivatedRoute,private customerSevice:CustomerService) {
 
-    this.customerId = route.snapshot.params.id;
-    console.log(this.customerId);
-   }
+  //   this.customerId = route.snapshot.params.id;
+  //   console.log(this.customerId);
+  //  }
+
+  constructor(private customerService:CustomerService) { }
 
   ngOnInit() {
-      this.customerSevice
+      this.customerService
         .listCustomers()
         .subscribe(response =>{
           this.customers=response;
         });
   }
 
-  findById(id:number):Customer{
-    this.currentUserSubscription = this.customerSevice
-    .getCustomerDetails(this.customerId)
-    .subscribe(response => {
-      this.currentCustomer = response;
-      console.log(response);
-    });
-    return this.currentCustomer;
-}
+//   findById(id:number):Customer{
+//     this.currentUserSubscription = this.customerSevice
+//     .getCustomerDetails(this.customerId)
+//     .subscribe(response => {
+//       this.currentCustomer = response;
+//       console.log(response);
+//     });
+//     return this.currentCustomer;
+// }
 }
