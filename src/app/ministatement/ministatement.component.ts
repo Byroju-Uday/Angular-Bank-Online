@@ -51,7 +51,7 @@ export class MinistatementComponent implements OnInit {
         this.temporary_Transactions = this.transactions.filter(function(transaction) {
           //console.log(transaction.date.toString());
           let date = transaction.date.toString();
-          let date_correct = date.substring(0,10).split("-");
+          let date_correct = date.split("-");
           var transactionDate= new Date(parseInt(date_correct[0]), parseInt(date_correct[1])-1, parseInt(date_correct[2]));
           console.log("this is from transactions filter"+transactionDate);
           console.log(transactionDate>=from);
