@@ -1,21 +1,22 @@
+<div class="container-fluid" id="maindiv">
 <form ngForm #form = "ngForm" 
 (ngSubmit)="login(form.value)">
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <label for="customerId">BankerId</label>
+        <label for="bankerId">BankerId</label>
         <input 
             type="number" 
             ngModel 
             required
             minlength="5"
             maxlength="8"
-            #customerId="ngModel"
-            name="BankerId"
+            #bankerId="ngModel"
+            name="bankerId"
             class="form-control" 
-            id="customerId" 
+            id="bankerId" 
             aria-describedby="name" 
-            placeholder="Enter your BankerId">
+            placeholder="Enter your bankerId">
       </div>
       <!-- <div class="alert alert-danger" *ngIf="customerName.touched && customerName.invalid">
           <span *ngIf="customerName.errors.required">CustomerId field is required</span>
@@ -44,3 +45,4 @@
         </div>
     </div>
 </form>
+</div>
