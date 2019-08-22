@@ -1,46 +1,74 @@
-<input type="date" [(ngModel)]="fromDate" name="fromDate"/>
-<input type="date" [(ngModel)]="toDate" name="toDate"/>
-
-<input type="button" id="submit" value="Filter" (click)="filterTransactions()" />
-<input type="button" id="reset" value="Reset" (click)="filterReset()" />
-<hr>
-
-<div class="row">
-      <div class="col-md-6">
-        <p>Select the Page Count:</p><select [(ngModel)]="pageCount">
-          <option value=5 selected>5</option>
-          <option value=10>10</option>
-          <option value=15>15</option>
-        </select>
+<h6>Online Statement</h6>
+<div class="card" style="padding:5px">
+      <div class="row">
+          <div class="col-md-3">
+              <label>FromDate</label>
+              <input type="date" [(ngModel)]="fromDate" name="fromDate"/>
+           </div>
+           <div class="col-md-3">
+              <label>ToDate</label> <br>
+              <input type="date" [(ngModel)]="toDate" name="toDate"/>
+            </div>
+            <div class="col-md-3">
+                <label>&nbsp;</label>
+                <input type="button" id="submit" value="Filter" class="btn btn-primary" (click)="filterTransactions()" /> &nbsp;
+                <input type="button" id="reset" value="Reset" class="btn btn-warning" (click)="filterReset()" />
+            </div>
+            <div class="col-md-3">
+                <label for="fromAccountId">AccountId<label></label>
+                </label>
+                <select class="form-control"  [(ngModel)]="accountId"
+                    required name="accountId" (change)="onAccountIdSelected()">
+                    <option>none</option>
+                    <option *ngFor="let account of allAccounts">{{account.id}}</option>
+      
+                </select>
+            </div>
       </div>
-      <div class="col-md-6">
-        <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+</div>
+      
+      <div class="row">
+            <div class="col-md-6">
+              Select the Page Count : <select [(ngModel)]="pageCount">
+                <option value=5 selected>5</option>
+                <option value=10>10</option>
+                <option value=15>15</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+            </div>
+      </div>
+
+
+
+<div class="card" style="padding:7px">
+      <div class="card-body">
+          <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th>TransactionId</th>
+                  <th>date</th>
+                  <th>typeofTrans</th>
+                  <th>transAmount</th>
+                  <th>updatedBal</th>
+                  <th>FromAccountId</th>
+                  <th>ToAccountId</th>
+                </tr>
+              </thead>
+              <tbody >
+                <tr *ngFor="let transaction of temporary_Transactions | paginate: { itemsPerPage: pageCount, currentPage: p }">
+                  <td>{{transaction.transactionId}}</td>
+                  <td>{{transaction.date}}</td>
+                  <td>{{transaction.typeOfTransaction}}</td>
+                  <td>{{transaction.transactionAmount}}</td>
+                  <td>{{transaction.updatedBalance}}</td>
+                  <td>{{transaction.fromAccountId}}</td>
+                  <td> {{transaction.toAccountId}}</td>
+                </tr>
+              </tbody>
+            </table>
       </div>
 </div>
 
-
-<table class="table table-dark table-hover">
-  <thead>
-    <tr>
-      <th>TransactionId</th>
-      <th>date</th>
-      <th>typeofTrans</th>
-      <th>transAmount</th>
-      <th>updatedBal</th>
-      <th>FromAccountId</th>
-      <th>ToAccountId</th>
-    </tr>
-  </thead>
-  <tbody >
-    <tr *ngFor="let transaction of temporary_Transactions | paginate: { itemsPerPage: pageCount, currentPage: p }">
-      <td>{{transaction.transactionId}}</td>
-      <td>{{transaction.date}}</td>
-      <td>{{transaction.typeOfTransaction}}</td>
-      <td>{{transaction.transactionAmount}}</td>
-      <td>{{transaction.updatedBalance}}</td>
-      <td>{{transaction.fromAccountId}}</td>
-      <td> {{transaction.toAccountId}}</td>
-    </tr>
-  </tbody>
-</table>
 

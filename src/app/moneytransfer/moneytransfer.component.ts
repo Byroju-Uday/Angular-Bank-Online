@@ -15,7 +15,7 @@ export class MoneytransferComponent implements OnInit {
   allAccounts:Account[];
   customerId:number = 1;
   transaction:any;
-  typeOfTransaction:string;
+  typeOfTransaction:string ="none";
   transactionAmount:number;
   fromAccountId:number;
   toAccountId:number;
@@ -37,23 +37,30 @@ export class MoneytransferComponent implements OnInit {
       // this.transaction.transactionAmount = this.transactionAmount;
       // this.transaction.typeOfTransaction = this.typeOfTransaction;
       console.log("came inside doTransaction");
-
-      this.transaction = {
-        fromAccountId : this.fromAccountId,
-        toAccountId : this.toAccountId,
-        transactionAmount : this.transactionAmount,
-        typeOfTransaction : this.typeOfTransaction
-      };
-
-       this.moneyTransferService.addTransaction(this.transaction).subscribe(function(response){
-          if(response === true)
-          {
-            alert("transaction is done");
-          }
-          else{
-            alert("transaction is failed due to low balance");
-          }
-       });
+      if(this.transactionAmount!=null && this.typeOfTransaction!="null" && this.toAccountId!=null && this.fromAccountId!=null)
+      {
+            this.transaction = {
+              fromAccountId : this.fromAccountId,
+              toAccountId : this.toAccountId,
+              transactionAmount : this.transactionAmount,
+              typeOfTransaction : this.typeOfTransaction
+            };
+      
+            this.moneyTransferService.addTransaction(this.transaction).subscribe(function(response){
+                if(response === true)
+                {
+                  alert("transaction is done");
+                }
+                else{
+                  alert("transaction is failed due to low balance");
+                }
+            });
+      }
+      else{
+        alert("Please select the fields");
+      }
+      
+      
 
   }
 

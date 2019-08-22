@@ -4,15 +4,16 @@
     method="POST" >
     <div class="form-row">
       <div class="form-group col-md-6" >
-            <label for="typeOfTransaction">TypeOfTransaction</label>
+            <label for="typeOfTransaction">Type Of Transaction</label>
             <select class="form-control"  [(ngModel)]="typeOfTransaction"
                  required  name="typeOfTransaction">
-              <option selected>Debit</option>
+                 <option >none</option>
+              <option >Debit</option>
               <option>Credit</option>
             </select>
       </div>
       <div class="form-group col-md-6" >
-          <label for="fromAccountId">FromAccountId</label>
+          <label for="fromAccountId">From AccountId</label>
           <select class="form-control"  [(ngModel)]="fromAccountId"
               required name="fromAccountId">
               <option>none</option>
@@ -23,7 +24,7 @@
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="toAccountId">ToAccountId</label>
+        <label for="toAccountId">To AccountId</label>
         <input 
         type="number" 
         class="form-control" 
@@ -33,7 +34,7 @@
         placeholder="toAccountId">
        </div>
       <div class="form-group col-md-6">
-        <label for="transactionAmount">TransactionAmount</label>
+        <label for="transactionAmount">Transaction Amount</label>
         <input type="number" 
         class="form-control" 
         required
@@ -42,6 +43,6 @@
         placeholder="transactionAmount">
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="doTransaction()">SEND MONEY</button>
+    <button type="submit" class="btn btn-primary" (click)="doTransaction()">Transfer</button>
   </form>
   </div>
