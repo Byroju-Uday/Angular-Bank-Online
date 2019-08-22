@@ -17,9 +17,9 @@ export class BankerloginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(data:{BankerId:number,password:string})
+  login(data:{bankerId:number,password:string})
   {
-    let customerId = data.BankerId;
+    let bankerId = data.bankerId;
     let password = data.password;
     console.log(`this is from login funtion`);
     // this.bankerService.validateBankerLoginCredentials(data).subscribe(response => {
