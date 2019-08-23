@@ -30,6 +30,7 @@ export class CustomerService {
     console.log(JSON.stringify(customerCredentials));
     return this.httpClient.post(this.CUSTOMER_API_URL+"customerLoginValidation",customerCredentials);
   }
+  
   getCustomerDetails(customerId:number):Observable<Customer>{
     console.log("Inside the Get Customer");
     console.log(customerId);

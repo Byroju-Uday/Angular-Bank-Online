@@ -24,7 +24,7 @@ export class CustomerloginComponent implements OnInit {
       console.log('Response from login function of customerlogin.component.ts');
       console.log(response);
       if(response===true)
-        this.router.navigate(['/customer']);
+        this.router.navigate(['/customer',customerId]);
       else
         this.router.navigate(['/customerLogin']);
     });
