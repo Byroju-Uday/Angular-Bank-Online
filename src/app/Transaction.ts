@@ -7,7 +7,7 @@ export class Transaction{
     }
     
     transactionId : number;
-    date : Date;
+    date : string;
     timeStamp : number;
     typeOfTransaction : string;
     transactionAmount : number;
