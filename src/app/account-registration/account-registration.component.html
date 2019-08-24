@@ -1,21 +1,26 @@
 <div class="container" id="accountRegistration">
 	<h1>Account Details</h1>
 	<div class="container" id="AddAccount">
-		<form ngForm #form = "ngForm" 
-		(ngSubmit)="handleFormData(form.value)"
+		<form ngForm #form = "ngForm"
+		(ngSubmit)="handleFormData(form.value,warningmsg.id)"
 		action="/employee/register" 
 		method="POST" modelAttribute="account">
-		<div class="form-row">
-				<div class="form-group col-md-6">
+		<div class="form-row" style="padding-block: 20%">
+				<div class="form-group col-md-12">
 					<label for="customerId">Customer Id</label>
 			        <input path="customerId" type="number" 
-			        ngModel 
+			        ngModel
                     required
 			        #customerId="ngModel"
 			        name="customerId"
-			        class="form-control" id="customerId" placeholder="Enter Customer Id" />
-                </div>
-                <div class="form-group col-md-6">
+					class="form-control" id="customerId" placeholder="Enter Customer Id" />
+				</div>
+		</div>
+		<div class="form-row"  style="padding-block: 20%">
+				<div class="alert alert-danger" *ngIf="customerId.touched && customerId.invalid">
+					<span *ngIf="customerId.errors.required">Customer ID is required</span>
+				</div>
+                <div class="form-group col-md-12">
 				  	<label for="accountType">Account Type</label>
 					<select path="accountType" 
 					ngModel 
@@ -27,29 +32,28 @@
 					  	<option>Current Account</option>
 					  	<option>Salary Account</option>
                     </select>
-                 </div>
-		</div>
-		<div class="form-row">
-				<div class="form-group col-md-6">
-					<label for="accountNumber">Account Number</label>
-					<input path="accountNumber" type="number" 
-					ngModel 
-                    required
-					#accountNumber="ngModel"
-					name="accountNumber"
-		            class="form-control" id="accountNumber" placeholder="Enter Account Number" />
+				 </div>
+				 <div class="alert alert-danger" *ngIf="accountType.touched && accountType.invalid">
+					<span *ngIf="accountType.errors.required">Account Type is required</span>
 				</div>
-				<div class="form-group col-md-6">
+		</div>
+		<div class="form-row" style="padding-block: 20%">
+				<div class="form-group col-md-12">
 					<label for="accountBalance">Account Balance</label>
-					<input path="accountBalance" type="number" 
-					ngModel 
+					<input path="accountBalance" type="number" (keyup)="minBalanceCheck(accountBalance.value,warningmsg.id)"
+					ngModel
 					required
 					#accountBalance="ngModel"
 					name="accountBalance"
 					class="form-control" id="accountBalance" placeholder="Enter Account Balance" />
 				</div>
+				<ng-container>
+				<span #warningmsg id="warningmsg" name="warningmsg" class="badge badge-warning" style="margin:15px;background-size: 20px;font-size: 15px">
+		
+				</span>
+			   </ng-container>
 		</div>
-		  <button type="submit" class="btn btn-primary">Create Account</button>
+		  <button type="submit" class="btn btn-primary"  style="margin:10px" [disabled]="form.form.invalid ||  balanceInValid()">Create Account</button>
 		</form>
 	</div>
 </div>
