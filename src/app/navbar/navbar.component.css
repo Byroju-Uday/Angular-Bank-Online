@@ -3,20 +3,75 @@
     background-color:black;
 } 
 
-#navbarbutton{
+/* #navbarbutton{
     border: 3px solid white;
-}
+    border-radius: 3px;
+    background-color: #ff3636;
+    font-size: 20px;
+    margin-right: 50px;
+    font-family:'Times New Roman', Times, serif;
+} */
 
 .btn{
-margin-right: 30px;
+margin-right: 60px;
+}
+.dropdown-item:hover{
+background-color:black;
+color:white;
+border-color:  #ff3636;
 }
 #CompName{
     color:white; 
     font-family:'Times New Roman', Times, serif;
-    text-shadow: 20px;
+    text-shadow: 24px;
 }
 dropdown-menu.a{
     color:black;
     font-family:'Times New Roman', Times, serif;
     text-shadow: 20px;
+}
+#menu{
+    font-family:'Times New Roman', Times, serif;
+    text-shadow: 24px;
+    font-size: 18px;
+    color:white; 
+}
+
+.button {
+  border-radius: 4px;
+  background-color: #ff3636;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 5px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
 }

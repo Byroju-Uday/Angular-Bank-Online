@@ -75,7 +75,8 @@ const routes:Routes=[
         children:[
           {
             path:'',
-            component:CustomerRegistrationComponent
+            redirectTo:'addCustomer',
+            pathMatch:'full'
           },
           {
             path:'addCustomer',
@@ -109,7 +110,8 @@ const routes:Routes=[
       children:[
         {
           path:'',
-          component: CustomerprofileComponent
+          redirectTo:'myProfile',
+            pathMatch:'full'
         },
         {
           path:'myProfile',

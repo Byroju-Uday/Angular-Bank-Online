@@ -1,14 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
-.btn-primary{
+.submit{
     background-color: #ff3636;
-    border: 2px solid white;
-
+    /* border: 3px solid black; */
+    color:white;
+    font-size: 20px;
+    border-radius: 5px;
 }
 
-.btn-primary:hover {
-    background-color: white;
-    color:black;
+/* .submit:hover {
+    background-color: black;
+    color:white;
     border: 3px solid #ff3636;
-}
+    
+} */
