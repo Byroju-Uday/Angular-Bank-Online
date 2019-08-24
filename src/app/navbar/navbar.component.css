@@ -3,6 +3,10 @@
     background-color:black;
 } 
 
+#navbarbutton{
+    border: 3px solid white;
+}
+
 .btn{
 margin-right: 30px;
 }

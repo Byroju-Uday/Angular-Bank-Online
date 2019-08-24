@@ -16,10 +16,10 @@ export class BankerService {
 
   constructor(private httpClient:HttpClient) { }
 
-  validateBankerLoginCredentials(bankerCredentials:{bankerId:number,password:string}):Boolean{
+  validateBankerLoginCredentials(bankerCredentials:{bankerId:string,password:string}):Boolean{
     console.log("inside the validateBankerCredentials method of customer.service.ts");
     console.log(JSON.stringify(bankerCredentials));
-    if(bankerCredentials.bankerId===2 && bankerCredentials.password==="vijay")
+    if(bankerCredentials.bankerId==="admin" && bankerCredentials.password==="admin")
     {
       return true;
     }
