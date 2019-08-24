@@ -4,7 +4,6 @@ export class Account{
     {
    
     }
-        id:number;
         accountType:string;
         accountNumber:number;
         accountBalance:number;

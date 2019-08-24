@@ -5,77 +5,57 @@
         <div class="col-md-8">
           <div class="card">
             <div class="card-header">
-              <h5 class="title">Edit Profile</h5>
+              <h5 class="title">Customer Profile</h5>
             </div>
             <div class="card-body">
               <form>
                 <div class="row">
-                  <div class="col-md-5 pr-1">
+                  <div class="col-md-6 pr-1">
                     <div class="form-group">
-                      <label>Company (disabled)</label>
-                      <input type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
+                      <label>Customer ID</label>
+                      <input type="text" class="form-control" disabled="" placeholder="customerId" value="{{customer.customerId}}">
                     </div>
                   </div>
-                  <div class="col-md-3 px-1">
+                  <div class="col-md-6 px-1">
                     <div class="form-group">
-                      <label>Username</label>
-                      <input type="text" class="form-control" placeholder="Username" value="michael23">
-                    </div>
-                  </div>
-                  <div class="col-md-4 pl-1">
-                    <div class="form-group">
-                      <label for="email">Email address</label>
-                      <input name="email" id="email" type="email" class="form-control" placeholder="Email">
+                      <label>Customer Name</label>
+                      <input type="text" class="form-control" disabled="" placeholder="customerName" value="{{customer.customerName}}">
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Date of Birth</label>
+                        <input type="text" class="form-control" disabled="" placeholder="dob" value="{{customer.dob}}">
+                      </div>
+                    </div>
+                  <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input name="email" id="email" type="email" disabled=""class="form-control" placeholder="Email" value="{{customer.emailId}}">
+                      </div>
+                    </div>
+                  </div>
+                <div class="row">
+                  <div class="col-md-6 pr-1">
                     <div class="form-group">
-                      <label>First Name</label>
-                      <input type="text" class="form-control" placeholder="Company" value="Mike">
+                      <label>Aadhar Card Number</label>
+                      <input type="text" class="form-control" disabled="" placeholder="aadharNo" value="{{customer.aadharNo}}">
                     </div>
                   </div>
                   <div class="col-md-6 pl-1">
                     <div class="form-group">
-                      <label>Last Name</label>
-                      <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
+                      <label>Pan Card Number</label>
+                      <input type="text" class="form-control" disabled="" placeholder="pancardNo" value="{{customer.pancardNo}}">
                     </div>
                   </div>
-                </div>
+                  </div>
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
                       <label>Address</label>
-                      <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-4 pr-1">
-                    <div class="form-group">
-                      <label>City</label>
-                      <input type="text" class="form-control" placeholder="City" value="Mike">
-                    </div>
-                  </div>
-                  <div class="col-md-4 px-1">
-                    <div class="form-group">
-                      <label>Country</label>
-                      <input type="text" class="form-control" placeholder="Country" value="Andrew">
-                    </div>
-                  </div>
-                  <div class="col-md-4 pl-1">
-                    <div class="form-group">
-                      <label>Postal Code</label>
-                      <input type="number" class="form-control" placeholder="ZIP Code">
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label>About Me</label>
-                      <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                      <input type="text" class="form-control" disabled="" placeholder="address" value="{{customer.address}}">
                     </div>
                   </div>
                 </div>
@@ -85,17 +65,17 @@
         </div>
         <div class="col-md-4">
           <div class="card card-user">
-            <div class="image">
-              <img src="../../assets/images/bg5.jpg" width = "150px" height = "200px" alt="...">
+            <div>
+              <img src="../../assets/images/bg5.jpg" width = "310px" height = "150px" alt="...">
             </div>
             <div class="card-body">
-              <div class="author">
-                <a href="#">
-                  <img class="avatar border-gray" src="../../assets/images/mike.jpg" width = "40px" height = "40px" alt="...">
-                  <h5 class="title">Mike Andrew</h5>
+              <div class="author text-center">
+                <a href="/customer/{{customer.customerId}}">
+                  <img class="avatar border-gray" src="../../assets/images/mike.jpg" width = "100px" height = "100px" alt="...">
+                  <h5 class="title text-center">{{customer.customerName}}</h5>
                 </a>
-                <p class="description">
-                  michael24
+                <p class="description text-center">
+                  {{customer.customerName}}@{{customer.dob}}
                 </p>
               </div>
               <p class="description text-center">
@@ -103,19 +83,56 @@
               </p>
             </div>
             <hr>
-            <div class="button-container">
-              <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                <i class="fab fa-facebook-f"></i>
+            <div class="button-container text-center">
+              <button href="" class="btn btn-neutral btn-icon btn-round btn-lg">
+                <i class="fa fa-facebook-f"></i>
               </button>
-              <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                <i class="fab fa-twitter"></i>
+              <button href="" class="btn btn-neutral btn-icon btn-round btn-lg">
+                <i class="fa fa-twitter"></i>
               </button>
-              <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                <i class="fab fa-google-plus-g"></i>
+              <button href="" class="btn btn-neutral btn-icon btn-round btn-lg">
+                <i class="fa fa-google-plus"></i>
               </button>
             </div>
           </div>
         </div>
       </div>
+      <br>
+      <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="title">Account Profile</h5>
+              </div>
+              <ng-container>
+              <div class="card-body" *ngFor="let account of customer.accounts">
+                <form>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Account Number</label>
+                        <input type="text" class="form-control" disabled="" placeholder="accountNumber" value="{{account.accountNumber}}">
+                      </div>
+                    </div>
+                    <div class="col-md-6 px-1">
+                      <div class="form-group">
+                        <label>Account Type</label>
+                        <input type="text" class="form-control" disabled="" placeholder="acccountType" value="{{account.accountType}}">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 pr-1">
+                        <div class="form-group">
+                          <label>Account Balance</label>
+                          <input type="text" class="form-control" disabled="" placeholder="accountBalance" value="{{account.accountBalance}}">
+                        </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </ng-container>
+            </div>
+          </div>
     </div>
     

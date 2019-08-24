@@ -4,7 +4,7 @@ export class Customer{
  {
 
  }
- 	customerId:number;
+ 	 customerId:number;
      customerName:string;
      password:string;
      emailId:string;
@@ -13,7 +13,7 @@ export class Customer{
      phoneNo:number;
      aadharNo:number;
      dob:string;
-
+ 	 accounts: Account[];
     
 	getCustomerId():number {
 		return this.customerId;

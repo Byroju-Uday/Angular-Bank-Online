@@ -18,12 +18,17 @@ export class CustomerprofileComponent implements OnInit {
     this.customerId = Number(this.route);
   }
   ngOnInit() {
-
     this.customerService
     .getCustomerDetails(this.customerId)
     .subscribe(response => {
       this.customer = response;
-      console.log(response);
+      console.log(this.customer);
+    });
+    this.customerService
+    .getAccountDetails(this.customerId)
+    .subscribe(response => {
+      this.customer.accounts = response;
+      console.log(this.customer.accounts);
     });
   }
 
