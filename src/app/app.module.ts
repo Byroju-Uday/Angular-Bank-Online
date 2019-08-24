@@ -104,7 +104,7 @@ const routes:Routes=[
       ]
     },
     {
-      path:'customer/:id',
+      path:'customer/:customerId',
       component: CustomerhomeComponent,
       children:[
         {

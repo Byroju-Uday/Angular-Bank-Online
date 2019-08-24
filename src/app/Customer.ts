@@ -4,7 +4,7 @@ export class Customer{
  {
 
  }
- customerId:number;
+ 	customerId:number;
      customerName:string;
      password:string;
      emailId:string;
@@ -12,7 +12,7 @@ export class Customer{
      address:string;
      phoneNo:number;
      aadharNo:number;
-    dob:string;
+     dob:string;
 
     
 	getCustomerId():number {

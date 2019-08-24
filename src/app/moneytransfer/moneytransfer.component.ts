@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoneytransferService } from '../moneytransfer.service';
 import {Account} from '../account';
-import { Subscription } from 'rxjs';
-import { Transaction } from '../Transaction';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-moneytransfer',
@@ -11,16 +10,19 @@ import { Transaction } from '../Transaction';
 })
 export class MoneytransferComponent implements OnInit {
 
-
+  public route: string;
   allAccounts:Account[];
-  customerId:number = 1;
+  customerId:number;
   transaction:any;
   typeOfTransaction:string ="none";
   transactionAmount:number;
   fromAccountId:number;
   toAccountId:number;
 
-  constructor(private moneyTransferService:MoneytransferService) { }
+  constructor(router: Router, private moneyTransferService:MoneytransferService) {
+    this.route = router.url.split("/")[2];
+    this.customerId = Number(this.route);
+  }
 
   ngOnInit() {
     this.moneyTransferService.getAllAccounts(this.customerId).subscribe(accounts=>

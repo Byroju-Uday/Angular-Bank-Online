@@ -34,7 +34,6 @@ export class CustomerService {
   getCustomerDetails(customerId:number):Observable<Customer>{
     console.log("Inside the Get Customer");
     console.log(customerId);
-    // customerId=1;
     return this.httpClient.get<Customer>(this.USER_API_URL+"/"+customerId);
   }
 

@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { TransactionService } from '../transaction.service';
 import { MoneytransferComponent } from '../moneytransfer/moneytransfer.component';
 import { MoneytransferService } from '../moneytransfer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ministatement',
@@ -13,14 +14,19 @@ import { MoneytransferService } from '../moneytransfer.service';
 export class MinistatementComponent implements OnInit {
 
   private subscription:Subscription;
+  public route: string;
   allAccounts:Account[];
   transactions:Transaction[];
   fromDate : Date = null;
   toDate : Date=null;
   accountId:number;
-  customerId:number =1;
+  customerId:number;
   pageCount:number = 5;
-  constructor(private transactionService:TransactionService,private moneyTransferService:MoneytransferService) { }
+  constructor(router: Router, private transactionService:TransactionService,private moneyTransferService:MoneytransferService) {
+    this.route = router.url.split("/")[2];
+    this.customerId = Number(this.route);
+   }
+
   temporary_Transactions:Transaction[];
 
   ngOnInit() {
