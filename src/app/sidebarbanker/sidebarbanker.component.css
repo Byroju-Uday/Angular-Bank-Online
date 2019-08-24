@@ -4,6 +4,12 @@
 a{
     color:white;
 }
+.is-active {
+    background-color:black;
+    border: 6px solid #ff3636;
+    border-left: 6px solid black;
+    border-radius: 5px;
+}
 /* ul#nav li a:hover,ul#nav li.active a{
     
     background-color:yellow;

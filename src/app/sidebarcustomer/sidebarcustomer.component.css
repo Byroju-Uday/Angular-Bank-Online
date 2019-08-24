@@ -4,3 +4,9 @@
 a{
     color:white;
 }
+.is-active {
+    background-color:black;
+    border: 6px solid #ff3636;
+    border-left: 6px solid black;
+    border-radius: 5px;
+}
