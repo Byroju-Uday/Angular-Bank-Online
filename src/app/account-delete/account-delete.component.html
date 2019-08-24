@@ -1,22 +1,22 @@
 <div class="container" id="deletion">
-  <h1>Account Deletion</h1>
-    <form ngForm #form = "ngForm" 
-      (ngSubmit)="handleDelete(form.value.accountId)"
-      action="/accounts/delete" 
-      method="POST">
-      <div class="form-row">
-          <label for="accountId">Account ID</label>
-          <input 
-            type="number" 
-            ngModel
-            required
-            #accountId="ngModel"
-            class="form-accountId" 
-            name = "accountId" 
-            id="accountId" 
-            placeholder="accountId">
-      </div>
-      <br/>
-      <button type="submit" class="btn btn-primary">Delete</button>
-    </form>
-</div>
+    <h1>Account Deletion</h1>
+      <form ngForm #form = "ngForm" 
+        (ngSubmit)="handleDelete(form.value.accountId)"
+        action="/accounts/delete" 
+        method="POST">
+        <div class="form-row">
+            <label for="accountId">Account ID</label>
+            <input 
+              type="number" 
+              ngModel
+              required
+              #customerId="ngModel"
+              class="form-control" 
+              name = "accountId" 
+              id="accountId" 
+              placeholder="accountId">
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-primary">Delete</button>
+      </form>
+  </div>

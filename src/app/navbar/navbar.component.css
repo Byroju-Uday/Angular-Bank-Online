@@ -1,7 +1,18 @@
  .navbar{
-    background-color:#ECF0F1; 
+    /* background-color:rgb(197, 204, 206);  */
+    background-color:black;
 } 
 
 .btn{
 margin-right: 30px;
+}
+#CompName{
+    color:white; 
+    font-family:'Times New Roman', Times, serif;
+    text-shadow: 20px;
+}
+dropdown-menu.a{
+    color:black;
+    font-family:'Times New Roman', Times, serif;
+    text-shadow: 20px;
 }
