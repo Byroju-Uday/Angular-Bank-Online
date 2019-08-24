@@ -7,14 +7,20 @@
 		method="POST" modelAttribute="account">
 		<div class="form-row" style="padding-block: 20%">
 				<div class="form-group col-md-12">
-					<label for="customerId">Customer Id</label>
-			        <input path="customerId" type="number" 
+					<label for="customerId">
+						Customer Id
+						<ng-container>
+								<span #warningmsgcustomer id="warningmsgcustomer" name="warningmsgcustomer" class="badge badge-warning" style="margin:15px;background-size: 20px;font-size: 15px"></span>
+						</ng-container>
+					</label>
+			        <input path="customerId" type="number" (keyup)="customerExistCheck(customerId.value,warningmsgcustomer.id)"
 			        ngModel
                     required
 			        #customerId="ngModel"
 			        name="customerId"
 					class="form-control" id="customerId" placeholder="Enter Customer Id" />
 				</div>
+				
 		</div>
 		<div class="form-row"  style="padding-block: 20%">
 				<div class="alert alert-danger" *ngIf="customerId.touched && customerId.invalid">
@@ -39,21 +45,21 @@
 		</div>
 		<div class="form-row" style="padding-block: 20%">
 				<div class="form-group col-md-12">
-					<label for="accountBalance">Account Balance</label>
+					<label for="accountBalance">
+						Account Balance
+						<ng-container>
+								<span #warningmsg id="warningmsg" name="warningmsg" class="badge badge-warning" style="margin:15px;background-size: 20px;font-size: 15px"></span>
+						</ng-container>
+					</label>
 					<input path="accountBalance" type="number" (keyup)="minBalanceCheck(accountBalance.value,warningmsg.id)"
 					ngModel
 					required
 					#accountBalance="ngModel"
 					name="accountBalance"
 					class="form-control" id="accountBalance" placeholder="Enter Account Balance" />
-				</div>
-				<ng-container>
-				<span #warningmsg id="warningmsg" name="warningmsg" class="badge badge-warning" style="margin:15px;background-size: 20px;font-size: 15px">
-		
-				</span>
-			   </ng-container>
+				</div>				
 		</div>
-		  <button type="submit" class="submit"  style="margin:10px" [disabled]="form.form.invalid ||  balanceInValid()">Create Account</button>
+		  <button type="submit" class="submit"  style="margin:10px" [disabled]="form.form.invalid ||  balanceInValid() || customerNotExists()">Create Account</button>
 		</form>
 	</div>
 </div>
