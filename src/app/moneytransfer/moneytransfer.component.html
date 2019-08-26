@@ -1,17 +1,27 @@
 <div class="container" id="moneytransfer">
   <h1>Customer Money Transaction</h1>
-  <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="showAlert">
+    <strong>Hey!! </strong> 
+    <div id="message"></div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="showAlertChanged()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModel">Extra large modal</button>
+
+  <div class="modal fade bd-example-modal-sm" id="myModel" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content" style="padding:14px">
+        Account is saved actually
+      </div>
+    </div>
+  </div> -->
     <form 
     method="POST" >
     <div class="form-row">
       <div class="form-group col-md-6" >
             <label for="typeOfTransaction">Type Of Transaction</label>
-            <select class="form-control"  [(ngModel)]="typeOfTransaction"
+            <select class="form-control"  [(ngModel)]="typeOfTransaction" 
                 required  name="typeOfTransaction">
                  <option >none</option>
               <option >Debit</option>

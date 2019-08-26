@@ -8,6 +8,8 @@ export class Account{
         accountNumber:number;
         accountBalance:number;
         customerId:number;
+        lastTransactionDate:string;
+        dateTransactionsCount:number;
     
     
    }
