@@ -43,7 +43,10 @@ export class ModifySpecificCustomerComponent implements OnInit {
     this.customerService.updateCustomer(customer.customerId ,customer).subscribe(response => {
       console.log('Response');
       console.log(response);
-      this.router.navigate(['/']);
+      document.getElementById("alert").style.display="block";
+      setTimeout(() => {
+        this.router.navigate(['/banker']);
+      }, 5000); 
     })
    }
 }

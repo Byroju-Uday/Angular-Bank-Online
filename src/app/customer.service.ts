@@ -17,7 +17,8 @@ export class CustomerService {
   private CUSTOMER_ACCOUNT_API_URL = "http://localhost:8080/customer/accounts";
 
   customers:any[]=[];
-
+  login:boolean;
+ 
   constructor(private httpClient:HttpClient) { }
 
 

@@ -33,7 +33,10 @@ export class AccountRegistrationComponent implements OnInit{
     account.customerId=data.customerId;
     this.accountService.saveAccount(account).subscribe(response => {
       console.log(response);
-      this.router.navigate(['/']);
+      document.getElementById("alert").style.display="block";
+      setTimeout(() => {
+        this.router.navigate(['/banker']);
+      }, 5000); 
     })
    }
    minBalanceCheck(accountBalance,divName){

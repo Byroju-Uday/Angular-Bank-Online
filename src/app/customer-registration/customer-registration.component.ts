@@ -10,7 +10,8 @@ import { Customer } from '../Customer';
 })
 export class CustomerRegistrationComponent {
 
-  constructor(private customerService:CustomerService,private router :Router) { }
+  constructor(private customerService:CustomerService,private router :Router) { 
+  }
 
   handleFormData(data:Customer){
     console.log(data);
@@ -26,9 +27,15 @@ export class CustomerRegistrationComponent {
     customer.phoneNo = data.phoneNo;
     this.customerService.saveCustomer(customer).subscribe(response => {
       console.log('Response');
+      //console.log(this.router.navigate(['/banker/addCustomer']));
       console.log(response);
-      this.router.navigate(['/']);
+      document.getElementById("alert").style.display="block";
+      setTimeout(() => {
+        location.reload();
+      }, 5000); 
+      //this.router.navigateByUrl('http://localhost:4200/banker');
     })
+
    }
 
 }

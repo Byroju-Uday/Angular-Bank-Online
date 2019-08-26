@@ -40,9 +40,33 @@
       </div> -->
       <button 
             type="submit" 
-            [disabled]="form.invalid"
-            class="submitlogin"><b>Submit</b></button>
+            data-toggle="modal" data-target="#myModal"
+            class="submitlogin"><b>Login</b></button>
         </div>
     </div>
 </form>
+</div>
+
+<div class="modal" id="myModal" tabindex="-1" data-backdrop="false" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Invalid</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        Invalid Password or BankerId......Please Try again!!!
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="functionclose()">Close</button>
+      </div>
+      
+    </div>
+  </div>
 </div>

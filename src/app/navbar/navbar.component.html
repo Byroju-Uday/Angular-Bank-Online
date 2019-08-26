@@ -17,7 +17,7 @@
         
       </ul>
       <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button> -->
-      <div class="dropdown">
+      <div *ngIf="!(bankerService.login || customerService.login)" class="dropdown" >
           <button type="button" class="button" id="navbarbutton" data-toggle="dropdown">
             <span>Login</span>
           </button>
@@ -26,6 +26,10 @@
             <a class="dropdown-item" [routerLink]="['bankerLogin']">As Banker</a>
           </div>
         </div>
-      
+      <div *ngIf="bankerService.login || customerService.login">
+          <button type="button" class="button" id="navbarbutton">
+             <span [routerLink]="['logOut']">Logout</span> 
+            </button>
+      </div>
     </div>
   </nav>
