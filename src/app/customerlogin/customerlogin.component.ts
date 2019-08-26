@@ -28,15 +28,10 @@ export class CustomerloginComponent implements OnInit {
       if(response===true){
         this.customerService.login=true;
         this.router.navigate(['/customer',customerId]);
-<<<<<<< Updated upstream
       }
-      else{
-        this.router.navigate(['/customerLogin']);
-=======
       else
       {
         document.getElementById("myModal").style.display="block"; 
->>>>>>> Stashed changes
       }
     });
   }
