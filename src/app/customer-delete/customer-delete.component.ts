@@ -17,7 +17,7 @@ export class CustomerDeleteComponent {
     this.customerService.deleteCustomer(customerId).subscribe(response => {
       console.log('Response');
       console.log(response);
-      this.router.navigate(['/']);
+      this.router.navigate(['/banker']);
       })
    }
 

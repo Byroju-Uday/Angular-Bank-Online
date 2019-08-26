@@ -26,8 +26,10 @@ export class CustomerRegistrationComponent {
     customer.phoneNo = data.phoneNo;
     this.customerService.saveCustomer(customer).subscribe(response => {
       console.log('Response');
+      //console.log(this.router.navigate(['/banker/addCustomer']));
       console.log(response);
-      this.router.navigate(['/banker']);
+      location.reload();
+      //this.router.navigateByUrl('http://localhost:4200/banker');
     })
    }
 

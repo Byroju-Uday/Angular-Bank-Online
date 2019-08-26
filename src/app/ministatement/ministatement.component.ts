@@ -87,11 +87,4 @@ export class MinistatementComponent implements OnInit {
     this.fromDate = null;
     this.toDate = null;
   }
-
-
-
-  
-
-  
-
 }

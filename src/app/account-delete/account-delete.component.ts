@@ -16,7 +16,7 @@ export class AccountDeleteComponent{
     this.accountService.deleteAccount(accountId).subscribe(response => {
       console.log('Response');
       console.log(response);
-      this.router.navigate(['/']);
+      this.router.navigate(['/banker']);
       })
    }
 }
