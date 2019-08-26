@@ -21,11 +21,7 @@ export class MinistatementComponent implements OnInit {
   toDate : Date=null;
   accountId:number;
   customerId:number;
-<<<<<<< HEAD
   pageCount:number = 5;
-=======
-  pageCount:number=5;
->>>>>>> 0f258aa9fddf3a97f0bc2eb0de696d0dc80d7b75
   constructor(router: Router, private transactionService:TransactionService,private moneyTransferService:MoneytransferService) {
     this.route = router.url.split("/")[2];
     this.customerId = Number(this.route);

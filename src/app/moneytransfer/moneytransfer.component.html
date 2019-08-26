@@ -1,10 +1,9 @@
 <div class="container" id="moneytransfer">
   <h1>Customer Money Transaction</h1>
-<<<<<<< HEAD
-  <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="showAlert">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert" >
     <strong>Hey!! </strong> 
-    <div id="message"></div>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="showAlertChanged()">
+    <div id="message" *ngIf="showAlert"></div>
+    <button *ngIf="showAlert" type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="showAlertChanged()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -17,14 +16,6 @@
       </div>
     </div>
   </div> -->
-=======
-  <div id="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    </div>
->>>>>>> 0f258aa9fddf3a97f0bc2eb0de696d0dc80d7b75
     <form 
     method="POST" >
     <div class="form-row">
