@@ -39,7 +39,7 @@ export class MoneytransferComponent implements OnInit {
       // this.transaction.transactionAmount = this.transactionAmount;
       // this.transaction.typeOfTransaction = this.typeOfTransaction;
       console.log("came inside doTransaction");
-      if(this.transactionAmount!=null && this.typeOfTransaction!="null" && this.toAccountId!=null && this.fromAccountId!=null)
+      if(this.transactionAmount!=null && this.typeOfTransaction!="none" && this.toAccountId!=null && this.fromAccountId!=null)
       {
             this.transaction = {
               fromAccountId : this.fromAccountId,
@@ -54,12 +54,12 @@ export class MoneytransferComponent implements OnInit {
                   alert("transaction is done");
                 }
                 else{
-                  alert("transaction is failed due to low balance");
+                  alert("transaction is failed due to low balance or daily limit may exceded");
                 }
             });
       }
       else{
-        alert("Please select the fields");
+        alert("Please select all the fields");
       }
       
       

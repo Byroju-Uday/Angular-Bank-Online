@@ -20,7 +20,7 @@ export class MinistatementComponent implements OnInit {
   fromDate : Date = null;
   toDate : Date=null;
   accountId:number;
-  customerId:number;
+  customerId:number=1;
   pageCount:number = 5;
   constructor(router: Router, private transactionService:TransactionService,private moneyTransferService:MoneytransferService) {
     this.route = router.url.split("/")[2];
