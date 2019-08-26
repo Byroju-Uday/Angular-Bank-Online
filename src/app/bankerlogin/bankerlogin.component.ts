@@ -38,8 +38,12 @@ export class BankerloginComponent implements OnInit {
       this.router.navigate(['/banker']);     
     }
     else{
-      this.router.navigate(['/bankerLogin']);
+      document.getElementById("myModal").style.display="block"; 
     }
   }
+
+  functionclose() {
+    location.reload();
+    }
 
 }
