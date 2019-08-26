@@ -125,7 +125,7 @@
                     <div class="col-md-12 pr-1">
                         <div class="form-group">
                           <label>Account Balance</label>
-                          <input type="text" class="form-control" disabled="" placeholder="accountBalance" value="{{account.accountBalance}}">
+                        <input type="text" class="form-control" disabled="" placeholder="accountBalance" value="{{account.accountBalance | currency: 'USD': true :'4.2-2'}}">
                         </div>
                     </div>
                   </div>

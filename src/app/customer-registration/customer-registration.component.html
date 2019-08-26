@@ -119,6 +119,7 @@
           placeholder="Phone Number">
         </div>
       </div>
-      <button type="submit" class="submit">Register</button>
+      <button type="submit" [disabled]="form.invalid"
+      class="submit">Register</button>
     </form>
     </div>

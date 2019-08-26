@@ -27,7 +27,7 @@ export class CustomerRegistrationComponent {
     this.customerService.saveCustomer(customer).subscribe(response => {
       console.log('Response');
       console.log(response);
-      this.router.navigate(['/']);
+      this.router.navigate(['/banker']);
     })
    }
 

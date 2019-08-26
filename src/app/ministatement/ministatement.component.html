@@ -47,13 +47,13 @@
           <table class="table">
               <thead class="thead-dark">
                 <tr>
-                  <th>TransactionId</th>
-                  <th>date</th>
-                  <th>typeofTrans</th>
-                  <th>transAmount</th>
-                  <th>updatedBal</th>
-                  <th>FromAccountId</th>
-                  <th>ToAccountId</th>
+                  <th>Transaction Id</th>
+                  <th>Date</th>
+                  <th>Credit/Debit</th>
+                  <th>Transaction Amount</th>
+                  <th>Updated Balance</th>
+                  <th>From AccountNo</th>
+                  <th>To AccountNo</th>
                 </tr>
               </thead>
               <tbody >
@@ -61,10 +61,10 @@
                   <td>{{transaction.transactionId}}</td>
                   <td>{{transaction.date}}</td>
                   <td>{{transaction.typeOfTransaction}}</td>
-                  <td>{{transaction.transactionAmount}}</td>
-                  <td>{{transaction.updatedBalance}}</td>
+                  <td>{{transaction.transactionAmount | currency: 'USD': true :'4.2-2'}}</td>
+                  <td>{{transaction.updatedBalance | currency: 'USD': true :'4.2-2'}}</td>
                   <td>{{transaction.fromAccountId}}</td>
-                  <td> {{transaction.toAccountId}}</td>
+                  <td>{{transaction.toAccountId}}</td>
                 </tr>
               </tbody>
             </table>
