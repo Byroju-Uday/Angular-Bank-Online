@@ -11,8 +11,9 @@ export class BankerService {
 
   private USER_API_URL = "http://localhost:8080/employee/";
   private CUSTOMER_API_URL = "http://localhost:8080/customer/"
-
+  
   customers:any[]=[];
+  login:boolean;
 
   constructor(private httpClient:HttpClient) { }
 

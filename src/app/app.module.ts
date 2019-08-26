@@ -23,6 +23,7 @@ import { MoneytransferComponent } from './moneytransfer/moneytransfer.component'
 import { CustomerloginComponent } from './customerlogin/customerlogin.component';
 import { ModifySpecificCustomerComponent } from './modify-specific-customer/modify-specific-customer.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes:Routes=[
   {path:'',component:HomeComponent},
@@ -48,7 +49,8 @@ const routes:Routes=[
     MinistatementComponent,
     MoneytransferComponent,
     CustomerloginComponent,
-    ModifySpecificCustomerComponent
+    ModifySpecificCustomerComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,10 @@ const routes:Routes=[
         path:'customerLogin',
         component:CustomerloginComponent
       },
+      {
+        path:'logOut',
+        component:LogoutComponent
+      },  
       {
         path:'banker',
         component: BankerhomeComponent,

@@ -14,7 +14,8 @@ export class BankerloginComponent implements OnInit {
     private router:Router,private bankerService:BankerService
     ) { }
 
-  ngOnInit() {
+    
+    ngOnInit() {
   }
 
   login(data:{bankerId:string,password:string})
@@ -33,7 +34,8 @@ export class BankerloginComponent implements OnInit {
     let ans = this.bankerService.validateBankerLoginCredentials(data)
     if(ans) {
       console.log("the login details are correct ....navigating to /banker")
-      this.router.navigate(['/banker']);
+      this.bankerService.login=true;
+      this.router.navigate(['/banker']);     
     }
     else{
       this.router.navigate(['/bankerLogin']);
