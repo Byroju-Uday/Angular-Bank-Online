@@ -24,7 +24,7 @@ export class AccountRegistrationComponent implements OnInit{
       this.customers=customers);
   }
 
-  handleFormData(data:Account,divName){
+  handleFormData(data:Account){
     console.log(data);
     let account:Account = new Account();
     console.log("Inside Handle form")

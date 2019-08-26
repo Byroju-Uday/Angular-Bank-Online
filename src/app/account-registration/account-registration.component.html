@@ -8,7 +8,7 @@
 		</div>
 	<div class="container" id="AddAccount">
 		<form ngForm #form = "ngForm"
-		(ngSubmit)="handleFormData(form.value,warningmsg.id)"
+		(ngSubmit)="handleFormData(form.value)"
 		action="/employee/register" 
 		method="POST" modelAttribute="account">
 		<div class="form-row" style="padding-block: 20%">
@@ -26,12 +26,13 @@
 			        name="customerId"
 					class="form-control" id="customerId" placeholder="Enter Customer Id" />
 				</div>
-				
 		</div>
 		<div class="form-row"  style="padding-block: 20%">
 				<div class="alert alert-danger" *ngIf="customerId.touched && customerId.invalid">
 					<span *ngIf="customerId.errors.required">Customer ID is required</span>
 				</div>
+			</div>
+		<div class="form-row"  style="padding-block: 20%">
                 <div class="form-group col-md-12">
 				  	<label for="accountType">Account Type</label>
 					<select path="accountType" 
@@ -45,10 +46,14 @@
 					  	<option>Salary Account</option>
                     </select>
 				 </div>
+		</div>
+		<div class="form-row"  style="padding-block: 20%">
+				 <div class="form-group col-md-12">
 				 <div class="alert alert-danger" *ngIf="accountType.touched && accountType.invalid">
 					<span *ngIf="accountType.errors.required">Account Type is required</span>
 				</div>
-		</div>
+				</div>
+			</div>
 		<div class="form-row" style="padding-block: 20%">
 				<div class="form-group col-md-12">
 					<label for="accountBalance">
