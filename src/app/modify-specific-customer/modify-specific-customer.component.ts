@@ -28,7 +28,7 @@ export class ModifySpecificCustomerComponent implements OnInit {
     });
     //console.log(this.currentCustomer);
   }
-  handleFormData(data:Customer){
+  handleModify(data:Customer){
     console.log(data);
     let customer:Customer = new Customer();
     customer.customerId = data.customerId;
