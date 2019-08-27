@@ -28,11 +28,7 @@ export class ModifySpecificCustomerComponent implements OnInit {
     });
     //console.log(this.currentCustomer);
   }
-<<<<<<< Updated upstream
-  handleModify(data:Customer){
-=======
   handleFormData(data:Customer){
->>>>>>> Stashed changes
     console.log(data);
     let customer:Customer = new Customer();
     customer.customerId = data.customerId;
@@ -44,7 +40,6 @@ export class ModifySpecificCustomerComponent implements OnInit {
     customer.pancardNo = data.pancardNo;
     customer.password = data.password;
     customer.phoneNo = data.phoneNo;
-<<<<<<< Updated upstream
     this.customerService.updateCustomer(customer.customerId ,customer).subscribe(response => {
       console.log('Response');
       console.log(response);
@@ -52,12 +47,6 @@ export class ModifySpecificCustomerComponent implements OnInit {
       setTimeout(() => {
         this.router.navigate(['/banker']);
       }, 5000); 
-=======
-    this.customerService.updateCustomer(data.customerId,customer).subscribe(response => {
-      console.log('Response');
-      console.log(response);
-      this.router.navigate(['/']);
->>>>>>> Stashed changes
     })
    }
 }
