@@ -10,7 +10,7 @@
       (ngSubmit)="handleFormData(form.value)"
       action="/employee/register" 
       method="POST" >
-      <div class="form-row">
+      <div class="row">
       <div class="col-md-6">
       <div class="form-group">
           <label for="customerId">
@@ -91,7 +91,7 @@
           </div>
       </div>
     </div>
-      <div class="form-row">
+      <div class="row">
         <div class="col-md-6">
         <div class="form-group">
           <label for="emailId">Email
@@ -133,7 +133,8 @@
         </div>
       </div>
     </div>
-    <div class="row">
+      <div class="row">
+      <div class="col-md-12">
       <div class="form-group">
         <label for="address">Address</label>
         <input 
@@ -150,7 +151,8 @@
           <span *ngIf="address.errors.required">Address is required</span>
       </div>
     </div>
-      <div class="form-row">
+    </div>
+      <div class="row">
         <div class="col-md-4">
         <div class="form-group">
           <label for="aadharNo">Aadhar Number</label>
