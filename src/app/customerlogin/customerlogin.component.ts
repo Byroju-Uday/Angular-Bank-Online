@@ -32,6 +32,7 @@ export class CustomerloginComponent implements OnInit {
       else
       {
         document.getElementById("myModal").style.display="block"; 
+        
       }
     });
   }

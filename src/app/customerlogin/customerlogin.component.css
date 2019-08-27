@@ -36,7 +36,9 @@ button{
     position: absolute;
 }
 
-
+.modal-backdrop {
+    display:none;
+}
 #myModal{
     display: none;
 }

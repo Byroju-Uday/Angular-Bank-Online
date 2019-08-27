@@ -67,9 +67,12 @@ style="display: none;width: 510px;align-content: center;margin-left: 400px;margi
   <strong>Invalid Credentials....Please Try Again!!!!!</strong> 
 </div> --> 
 
-
+<script>
+    $('.modal-backdrop').hide();
+    </script>
 
 <div class="container-fluid" id="maindiv">
+  <div class="row">
 <form ngForm #form = "ngForm" 
 (ngSubmit)="login(form.value)">
   <div class="row">
@@ -111,13 +114,14 @@ style="display: none;width: 510px;align-content: center;margin-left: 400px;margi
       </div> -->
       <button 
             type="submit" 
-            class="submitlogin" data-toggle="modal" data-target="#myModal"><b>Login</b></button>
+            class="submitlogin" data-target="#myModal"><b>Login</b></button>
         </div>
     </div>
 </form>
 </div>
 
-  <div class="modal" id="myModal" tabindex="-1" data-backdrop="false" >
+<div class="row">
+  <div class="modal" id="myModal" role="dialog" tabindex="-1" data-backdrop="false" >
     <div class="modal-dialog">
       <div class="modal-content">
       
@@ -140,3 +144,6 @@ style="display: none;width: 510px;align-content: center;margin-left: 400px;margi
       </div>
     </div>
   </div>
+</div>
+</div>
+
