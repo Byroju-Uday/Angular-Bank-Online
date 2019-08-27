@@ -58,5 +58,5 @@ export class CustomerService {
      console.log(this.USER_API_URL_UPDATE);
      console.log(customerId);
       return this.httpClient.put<Customer>(this.USER_API_URL_UPDATE+"/"+customerId, customer);
-  
+   }
 }
