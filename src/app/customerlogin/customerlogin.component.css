@@ -37,6 +37,6 @@ button{
 }
 
 
-#myModal{
+.modal{
     display: none;
 }

@@ -16,6 +16,8 @@ export class CustomerprofileComponent implements OnInit {
   constructor(router: Router, private customerService: CustomerService) {
     this.route = router.url.split("/")[2];
     this.customerId = Number(this.route);
+    // console.log("coming into true condition")
+    // location.reload();
   }
   ngOnInit() {
     this.customerService

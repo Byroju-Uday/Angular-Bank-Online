@@ -4,6 +4,7 @@ import { CustomerCredentials } from '../CustomerCredentials';
 import { CustomerService } from '../customer.service';
 import { stringify } from '@angular/core/src/util';
 
+
 @Component({
   selector: 'app-customerlogin',
   templateUrl: './customerlogin.component.html',
@@ -13,7 +14,7 @@ export class CustomerloginComponent implements OnInit {
 
   constructor(
     private router:Router,private customerService:CustomerService) { }
-  
+  login1:boolean;
   ngOnInit() {
   }
   
@@ -26,12 +27,17 @@ export class CustomerloginComponent implements OnInit {
       console.log('Response from login function of customerlogin.component.ts');
       console.log(response);
       if(response===true){
+        console.log("coming into true condition")
         this.customerService.login=true;
+        this.login1=true;
         this.router.navigate(['/customer',customerId]);
       }
       else
       {
-        document.getElementById("myModal").style.display="block"; 
+        this.login1=false;
+        console.log(this.login1)
+        console.log("coming into false condition")
+        document.getElementById("myModal").style.display="block";
       }
     });
   }
