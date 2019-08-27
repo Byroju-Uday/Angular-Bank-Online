@@ -6,13 +6,13 @@
         <span aria-hidden="true">&times;</span>
       </button>
       </div>
-      <form 
-      ngForm #form = "ngForm" 
+      <form ngForm #form = "ngForm" 
       (ngSubmit)="handleFormData(form.value)"
       action="/employee/register" 
       method="POST" >
       <div class="form-row">
-      <div class="form-group col-md-6">
+      <div class="col-md-6">
+      <div class="form-group">
           <label for="customerId">
           CustomerId
           <ng-container>
@@ -32,7 +32,9 @@
         <div class="alert alert-danger" *ngIf="customerId.touched && customerId.invalid">
             <span *ngIf="customerId.errors.required">Customer Id is required</span>
         </div>
-        <div class="form-group col-md-6">
+      </div>
+       <div class="col-md-6">
+        <div class="form-group">
           <label for="customerName">CustomerName</label>
           <input 
           type="text" 
@@ -44,7 +46,14 @@
           id="customerName" 
           placeholder="CustomerName">
         </div>
-        <div class="form-group col-md-6">
+        <div class="alert alert-danger" *ngIf="customerName.touched && customerName.invalid">
+            <span *ngIf="customerName.errors.required">Customer Name is required</span>
+        </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+        <div class="form-group">
           <label for="password">Password</label>
           <input 
           type="password"  
@@ -56,7 +65,12 @@
           id="password" 
           placeholder="Password">
         </div>
-        <div class="form-group col-md-6">
+        <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+            <span *ngIf="password.errors.required">Password is required</span>
+        </div>
+      </div>
+        <div class="col-md-6">
+        <div class="form-group">
             <label for="confirmpassword">Confirm Password
                 <ng-container>
                     <span #warningmsgpwd id="warningmsgpwd" name="warningmsgpwd" class="badge badge-warning" style="margin:5px;background-size: 10px;font-size: 10px"></span>
@@ -72,9 +86,14 @@
             id="confirmpassword" 
             placeholder="Confirm Password">
           </div>
+          <div class="alert alert-danger" *ngIf="confirmpassword.touched && confirmpassword.invalid">
+              <span *ngIf="confirmpassword.errors.required">Confirm Password is required</span>
+          </div>
       </div>
+    </div>
       <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="col-md-6">
+        <div class="form-group">
           <label for="emailId">Email
               <ng-container>
                   <span #warningmsgemail id="warningmsgemail" name="warningmsgemail" class="badge badge-warning" style="margin:5px;background-size: 10px;font-size: 10px"></span>
@@ -89,14 +108,16 @@
           #emailId="ngModel"
           name="emailId" 
           placeholder="Email ID"/>
+        </div>
           <div [hidden]="!emailId.errors?.pattern">
               <span class="badge badge-warning" >Invalid Email Id</span>
           </div> 
           <div class="alert alert-danger" *ngIf="emailId.touched && emailId.invalid">
               <span *ngIf="emailId.errors.required">Email ID is required</span>
             </div>
-         </div>
-        <div class="form-group col-md-6">
+          </div>
+        <div class="col-md-6">
+        <div class="form-group">
           <label for="dob">DOB</label>
           <input type="date" 
           class="form-control" 
@@ -107,7 +128,12 @@
           name="dob" 
           placeholder="Date of Birth">
         </div>
+        <div class="alert alert-danger" *ngIf="dob.touched && dob.invalid">
+            <span *ngIf="dob.errors.required">Date Of Birth is required</span>
+        </div>
       </div>
+    </div>
+    <div class="row">
       <div class="form-group">
         <label for="address">Address</label>
         <input 
@@ -115,13 +141,18 @@
         class="form-control" 
         ngModel 
         required
-        #inputAddress="ngModel"
+        #address="ngModel"
         id="address"  
         name="address" 
         placeholder="Address">
       </div>
+      <div class="alert alert-danger" *ngIf="address.touched && address.invalid">
+          <span *ngIf="address.errors.required">Address is required</span>
+      </div>
+    </div>
       <div class="form-row">
-        <div class="form-group col-md-4">
+        <div class="col-md-4">
+        <div class="form-group">
           <label for="aadharNo">Aadhar Number</label>
           <input 
           type="number" 
@@ -133,16 +164,18 @@
           id="aadharNo" 
           name="aadharNo" 
           placeholder="Aadhar Card"/>
-          <!-- <div [hidden]="!aadharNo.errors?.minlength">
+        </div>
+         <!-- <div [hidden]="!aadharNo.errors?.minlength">
               <span class="badge badge-warning" >Invalid Aadhar Number</span>
           </div>  -->
-          <div class="alert alert-danger" *ngIf="aadharNo.errors?.touched && aadharNo.errors.invalid">
-            <div *ngIf="aadharNo.errors.required">
-              <span>Aadhar Number is required</span>
+          <div class="alert alert-danger" *ngIf="aadharNo.errors.touched && aadharNo.errors.invalid">
+              <div *ngIf="aadharNo.errors.required">
+                <span>Aadhar Number is required</span>
+              </div>
             </div>
-          </div>
-         </div>
-        <div class="form-group col-md-4">
+        </div>
+        <div class="col-md-4">
+        <div class="form-group">
           <label for="pancardNo">Pan Card</label>
           <input 
           type="text" 
@@ -154,7 +187,14 @@
           name="pancardNo" 
           placeholder="Pan Card">
         </div>
-         <div class="form-group col-md-4">
+        <div class="alert alert-danger" *ngIf="pancardNo.errors.touched && pancardNo.errors.invalid">
+            <div *ngIf="pancardNo.errors.required">
+              <span>Aadhar Number is required</span>
+            </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+         <div class="form-group">
           <label for="phoneNo">Phone Number</label>
           <input 
           type="number" 
@@ -166,7 +206,11 @@
           name="phoneNo" 
           placeholder="Phone Number">
         </div>
+        <div class="alert alert-danger" *ngIf="phoneNo.touched && phoneNo.invalid">
+            <span>Email address is mandatory</span>
+        </div>
       </div>
+    </div>
       <button type="submit" [disabled]="form.invalid || failedCustomVerification()"
       class="submit">Register</button>
     </form>
