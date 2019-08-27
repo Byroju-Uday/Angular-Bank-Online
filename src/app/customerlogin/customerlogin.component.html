@@ -67,9 +67,29 @@ style="display: none;width: 510px;align-content: center;margin-left: 400px;margi
   <strong>Invalid Credentials....Please Try Again!!!!!</strong> 
 </div> --> 
 
-<script>
-    $('.modal-backdrop').hide();
-    </script>
+<div class="modal" id="myModal" data-backdrop="false" style="display: none">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Invalid</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        Invalid Password or CustomerId......Please Try again!!!
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="functionclose()">Close</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
 
 <div class="container-fluid" id="maindiv">
   <div class="row">
@@ -119,31 +139,3 @@ style="display: none;width: 510px;align-content: center;margin-left: 400px;margi
     </div>
 </form>
 </div>
-
-<div class="row">
-  <div class="modal" id="myModal" role="dialog" tabindex="-1" data-backdrop="false" >
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Invalid</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-          Invalid Password or CustomerId......Please Try again!!!
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="functionclose()">Close</button>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
