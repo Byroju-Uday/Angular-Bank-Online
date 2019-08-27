@@ -40,7 +40,7 @@ export class ModifySpecificCustomerComponent implements OnInit {
     customer.pancardNo = data.pancardNo;
     customer.password = data.password;
     customer.phoneNo = data.phoneNo;
-    this.customerService.updateCustomer(customer.customerId ,customer).subscribe(response => {
+    this.customerService.updateCustomer(this.customerId ,customer).subscribe(response => {
       console.log('Response');
       console.log(response);
       document.getElementById("alert").style.display="block";
