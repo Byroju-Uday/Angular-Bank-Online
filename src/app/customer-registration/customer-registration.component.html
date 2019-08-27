@@ -129,13 +129,15 @@
           ngModel 
           required
           minlength="12"
+          maxlength="12"
           #aadharNo="ngModel"
           id="aadharNo" 
           name="aadharNo" 
+          pattern="[0-9]{12}"
           placeholder="Aadhar Card"/>
-          <!-- <div [hidden]="!aadharNo.errors?.minlength">
+          <div [hidden]="!aadharNo.errors?.pattern">
               <span class="badge badge-warning" >Invalid Aadhar Number</span>
-          </div>  -->
+          </div> 
           <div class="alert alert-danger" *ngIf="aadharNo.errors?.touched && aadharNo.errors.invalid">
             <div *ngIf="aadharNo.errors.required">
               <span>Aadhar Number is required</span>
@@ -152,7 +154,11 @@
           required
           #pancardNo="ngModel"
           name="pancardNo" 
+          pattern="[A-Za-z]{5}\d{4}[A-Za-z]{1}"
           placeholder="Pan Card">
+          <div [hidden]="!pancardNo.errors?.pattern">
+              <span class="badge badge-warning">Invalid Pan card number</span>
+          </div>
         </div>
          <div class="form-group col-md-4">
           <label for="phoneNo">Phone Number</label>
@@ -164,7 +170,11 @@
           class="form-control" 
           id="phoneNo" 
           name="phoneNo" 
+          pattern="[0-9]{10}"
           placeholder="Phone Number">
+          <div [hidden]="!phoneNo.errors?.pattern">
+              <span class="badge badge-warning" >Invalid Phone Number</span>
+          </div> 
         </div>
       </div>
       <button type="submit" [disabled]="form.invalid || failedCustomVerification()"
