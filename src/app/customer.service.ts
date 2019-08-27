@@ -10,17 +10,11 @@ import { CustomerCredentials } from './CustomerCredentials';
 export class CustomerService {
 
   private USER_API_URL_SAVE = "http://localhost:8080/employee/";
-<<<<<<< Updated upstream
   private CUSTOMER_API_URL = "http://localhost:8080/customer/";
   private USER_API_URL = "http://localhost:8080/customer/profile";
   private USER_API_DELETE_URL = "http://localhost:8080/employee/delete";
   private USER_API_URL_UPDATE = "http://localhost:8080/employee/profile";
   private CUSTOMER_ACCOUNT_API_URL = "http://localhost:8080/customer/accounts";
-=======
-  private CUSTOMER_API_URL = "http://localhost:8080/customer/"
-  private USER_API_URL = "http://localhost:8080/customer/profile"
-  private USER_API_URL_UPDATE = "http://localhost:8080/employee/profile";
->>>>>>> Stashed changes
 
   customers:any[]=[];
   login:boolean;
@@ -53,7 +47,6 @@ export class CustomerService {
     return this.httpClient.get<Customer[]>(this.CUSTOMER_API_URL+"/customers");
    }
 
-<<<<<<< Updated upstream
   deleteCustomer(customerId: number):Observable<number>{
     console.log("Inside the delete Customer");
     console.log(customerId)
@@ -65,12 +58,5 @@ export class CustomerService {
      console.log(this.USER_API_URL_UPDATE);
      console.log(customerId);
       return this.httpClient.put<Customer>(this.USER_API_URL_UPDATE+"/"+customerId, customer);
-=======
-   updateCustomer(id: number, customer:Customer):Observable<any>{
-     console.log("inside the updatecustomer");
-     console.log(this.USER_API_URL_UPDATE);
-    return this.httpClient.put(this.USER_API_URL_UPDATE+"/"+id,customer)
->>>>>>> Stashed changes
-  }
   
 }
