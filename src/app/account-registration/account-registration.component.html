@@ -37,15 +37,15 @@
                 <div class="col-md-12">
 				    <div class="form-group">
 				  	<label for="accountType">Account Type</label>
-					<select path="accountType" 
+					<select path="accountType"
 					ngModel 
                     required
 					#accountType="ngModel"
 					name="accountType"
 					class="form-control" id="accountType">
-					  	<option>Savings Account</option>
+						<option>Savings Account</option>
 					  	<option>Current Account</option>
-					  	<option>Salary Account</option>
+						<option>Salary Account</option> 
                     </select>
 				 </div>
 				 <div class="alert alert-danger" *ngIf="accountType.touched && accountType.invalid">
