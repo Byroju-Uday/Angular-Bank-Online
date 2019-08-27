@@ -13,9 +13,14 @@
       method="POST" >
       <div class="form-row">
       <div class="form-group col-md-6">
-          <label for="customerId">CustomerId</label>
+          <label for="customerId">
+          CustomerId
+          <ng-container>
+              <span #warningmsgcustomer id="warningmsgcustomer" name="warningmsgcustomer" class="badge badge-warning" style="margin:5px;background-size: 10px;font-size: 10px"></span>
+          </ng-container>
+          </label>
           <input 
-          type="number" 
+          type="number" (keyup)="verifyCustomerId(customerId.value,warningmsgcustomer.id)"
           ngModel 
           required
           #customerId="ngModel"
@@ -23,6 +28,9 @@
           name = "customerId" 
           id="customerId" 
           placeholder="CustomerId">
+        </div>
+        <div class="alert alert-danger" *ngIf="customerId.touched && customerId.invalid">
+            <span *ngIf="customerId.errors.required">Customer Id is required</span>
         </div>
         <div class="form-group col-md-6">
           <label for="customerName">CustomerName</label>
@@ -39,7 +47,7 @@
         <div class="form-group col-md-6">
           <label for="password">Password</label>
           <input 
-          type="password" 
+          type="password"  
           class="form-control" 
           ngModel 
           required
@@ -48,19 +56,45 @@
           id="password" 
           placeholder="Password">
         </div>
+        <div class="form-group col-md-6">
+            <label for="confirmpassword">Confirm Password
+                <ng-container>
+                    <span #warningmsgpwd id="warningmsgpwd" name="warningmsgpwd" class="badge badge-warning" style="margin:5px;background-size: 10px;font-size: 10px"></span>
+                </ng-container>
+            </label>
+            <input 
+            type="password"   (keyup)="verifyPasswordConfirmPassword(password.value,confirmpassword.value,warningmsgpwd.id)"
+            class="form-control" 
+            ngModel 
+            required
+            #confirmpassword="ngModel"
+            name="comfirmpassword" 
+            id="confirmpassword" 
+            placeholder="Confirm Password">
+          </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="emailId">Email</label>
+          <label for="emailId">Email
+              <ng-container>
+                  <span #warningmsgemail id="warningmsgemail" name="warningmsgemail" class="badge badge-warning" style="margin:5px;background-size: 10px;font-size: 10px"></span>
+              </ng-container>
+          </label>
           <input 
-          type="email" 
+          type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" (keyup)="verifyEmailId(emailId.value,warningmsgemail.id)"
           class="form-control" 
           id="emailId" 
           ngModel 
           required
-          #email="ngModel"
+          #emailId="ngModel"
           name="emailId" 
-          placeholder="Email">
+          placeholder="Email ID"/>
+          <div [hidden]="!emailId.errors?.pattern">
+              <span class="badge badge-warning" >Invalid Email Id</span>
+          </div> 
+          <div class="alert alert-danger" *ngIf="emailId.touched && emailId.invalid">
+              <span *ngIf="emailId.errors.required">Email ID is required</span>
+            </div>
          </div>
         <div class="form-group col-md-6">
           <label for="dob">DOB</label>
@@ -88,18 +122,26 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-4">
-          <label for="aadharNo">Aadhar Card</label>
+          <label for="aadharNo">Aadhar Number</label>
           <input 
           type="number" 
           class="form-control" 
           ngModel 
           required
-          #inputAddress="ngModel"
+          minlength="12"
+          #aadharNo="ngModel"
           id="aadharNo" 
           name="aadharNo" 
-          placeholder="Aadhar Card">
-        </div>
-        
+          placeholder="Aadhar Card"/>
+          <!-- <div [hidden]="!aadharNo.errors?.minlength">
+              <span class="badge badge-warning" >Invalid Aadhar Number</span>
+          </div>  -->
+          <div class="alert alert-danger" *ngIf="aadharNo.errors?.touched && aadharNo.errors.invalid">
+            <div *ngIf="aadharNo.errors.required">
+              <span>Aadhar Number is required</span>
+            </div>
+          </div>
+         </div>
         <div class="form-group col-md-4">
           <label for="pancardNo">Pan Card</label>
           <input 
@@ -125,7 +167,7 @@
           placeholder="Phone Number">
         </div>
       </div>
-      <button type="submit" [disabled]="form.invalid"
+      <button type="submit" [disabled]="form.invalid || failedCustomVerification()"
       class="submit">Register</button>
     </form>
     </div>

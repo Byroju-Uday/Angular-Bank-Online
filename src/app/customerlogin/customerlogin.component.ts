@@ -34,10 +34,7 @@ export class CustomerloginComponent implements OnInit {
       }
       else
       {
-        this.login1=false;
-        console.log(this.login1)
-        console.log("coming into false condition")
-        document.getElementById("myModal").style.display="block";
+        document.getElementById("myModal").style.display="block"; 
       }
     });
   }
