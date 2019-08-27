@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import { CustomerService } from '../customer.service';
 import { CustomerCredentials } from '../CustomerCredentials';
 import { BankerService } from '../banker.service';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-bankerlogin',
   templateUrl: './bankerlogin.component.html',
@@ -11,11 +12,22 @@ import { BankerService } from '../banker.service';
 export class BankerloginComponent implements OnInit {
 //router injection
   constructor(
-    private router:Router,private bankerService:BankerService
+    private router:Router,private bankerService:BankerService,public authService:AuthService
     ) { }
 
     
     ngOnInit() {
+
+      if(localStorage.getItem("isLoggedIn") && localStorage.getItem("isLoggedIn")=="true" )
+      {
+        if(localStorage.getItem("isCustomer")=="true"){
+          this.router.navigate(['/customer']);
+        }
+        else{
+          this.router.navigate(['/banker']);
+        }
+        
+      }
   }
 
   login(data:{bankerId:string,password:string})
@@ -35,6 +47,11 @@ export class BankerloginComponent implements OnInit {
     if(ans) {
       console.log("the login details are correct ....navigating to /banker")
       this.bankerService.login=true;
+      this.authService.setLogin(true);
+       console.log("this.authService.logInOrOut is "+this.authService.logInOrOut);
+        localStorage.setItem('isLoggedIn', "true");
+        localStorage.setItem('token', data.bankerId+"");
+        localStorage.setItem('isCustomer',"false");
       this.router.navigate(['/banker']);     
     }
     else{

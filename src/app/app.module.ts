@@ -24,6 +24,8 @@ import { CustomerloginComponent } from './customerlogin/customerlogin.component'
 import { ModifySpecificCustomerComponent } from './modify-specific-customer/modify-specific-customer.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { LogoutComponent } from './logout/logout.component';
+import { AuthGuard } from './auth.guard';
+import {  ReactiveFormsModule } from '@angular/forms';
 
 const routes:Routes=[
   {path:'',component:HomeComponent},
@@ -86,27 +88,33 @@ const routes:Routes=[
           },
           {
             path:'addCustomer',
-            component: CustomerRegistrationComponent
+            component: CustomerRegistrationComponent,
+            canActivate: [AuthGuard]
           },
           {
             path:'modifyCustomer',
-            component: CustomerModifyComponent
+            component: CustomerModifyComponent,
+            canActivate: [AuthGuard]
           },
           {
             path:'modifySpecificCustomer/:customerId',
-            component:ModifySpecificCustomerComponent
+            component:ModifySpecificCustomerComponent,
+            canActivate: [AuthGuard]
           },
           {
             path:'deleteCustomer',
-            component: CustomerDeleteComponent
+            component: CustomerDeleteComponent,
+            canActivate: [AuthGuard]
           },
           {
             path:'addAccount',
-            component: AccountRegistrationComponent
+            component: AccountRegistrationComponent,
+            canActivate: [AuthGuard]
           },
           {
             path:'deleteAccount',
-            component: AccountDeleteComponent
+            component: AccountDeleteComponent,
+            canActivate: [AuthGuard]
           }
       ]
     },
@@ -121,15 +129,18 @@ const routes:Routes=[
         },
         {
           path:'myProfile',
-          component: CustomerprofileComponent
+          component: CustomerprofileComponent,
+          canActivate: [AuthGuard]
         },
         {
           path:'fundTransfer',
-          component: MoneytransferComponent
+          component: MoneytransferComponent,
+          canActivate: [AuthGuard]
         },
         {
           path:'myStatement',
-          component: MinistatementComponent
+          component: MinistatementComponent,
+          canActivate: [AuthGuard]
         }
        ]
       }
