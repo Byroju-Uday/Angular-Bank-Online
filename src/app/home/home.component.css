@@ -1,4 +1,4 @@
-.bg-1{
+/* .bg-1{
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(../../assets/images/home.jpg)no-repeat center fixed;
     background-size:cover;
     
@@ -15,4 +15,39 @@
     padding:10px;
     color:white;
     font-family: 'Pacifico', cursive;
+} */
+
+/* #carouselExampleIndicators{
+    height: 200px;
+    width: 1300px;
+} */
+
+#maindiv{
+    margin-top:2px;
+    padding-top:25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    border: 4px;
+    height:500px;
+    width:1300px;
+    background-color:tomato;
 }
+
+h1{
+
+    color:black;
+    font-family: 'Roboto Slab', serif;
+    position: relative;
+    font-size: 50px;
+    padding:20px;
+    color:#cc0001
+}
+
+ p{
+    font-size: 15px;
+    padding:5px;
+    color:BLACK;
+    /* font-family: 'Pacifico', cursive; */
+    font-family:'Times New Roman', Times, serif
+} 
