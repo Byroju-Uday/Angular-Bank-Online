@@ -1,21 +1,12 @@
 <div class="container" id="moneytransfer">
   <h1>Customer Money Transaction</h1>
-  <div class="alert alert-warning alert-dismissible fade show" role="alert" >
-    <strong>Hey!! </strong> 
-    <div id="message" *ngIf="showAlert"></div>
-    <button *ngIf="showAlert" type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="showAlertChanged()">
+  <div id="alerting" class="alert alert-warning alert-dismissible fade show" role="alert" style="display:none;">
+    <strong >Hey!! </strong> 
+    <p id="message" >....</p>
+    <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="showAlertChanged()">
       <span aria-hidden="true">&times;</span>
-    </button>
+    </button> -->
   </div>
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModel">Extra large modal</button>
-
-  <div class="modal fade bd-example-modal-sm" id="myModel" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content" style="padding:14px">
-        Account is saved actually
-      </div>
-    </div>
-  </div> -->
     <form 
     method="POST" >
     <div class="form-row">
