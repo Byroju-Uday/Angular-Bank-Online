@@ -228,7 +228,7 @@
           pattern="[0-9]{10}"
           placeholder="Phone Number">
           <div [hidden]="!phoneNo.errors?.pattern">
-            <span class="badge badge-warning" >Invalid Aadhar Number</span>
+            <span class="badge badge-warning" >Invalid Phone Number</span>
         </div> 
         <div class="badge badge-warning" *ngIf="phoneNo.touched && phoneNo.invalid">
           <div *ngIf="phoneNo.errors.required">
