@@ -57,3 +57,17 @@ h1{
     /* font-family: 'Pacifico', cursive; */
     font-family:'Times New Roman', Times, serif
 } 
+
+.mapouter{
+    position:relative;
+    text-align:right;
+    height:300px;
+    width:300px;
+}
+
+.gmap_canvas{
+     overflow:hidden;
+     background:none!important;
+     height:500px;
+     width:600px;
+    }
