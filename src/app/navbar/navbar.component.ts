@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit,OnDestroy {
   ngOnInit() {
 
     this.subscription = this.authService.getLogInOrOut().subscribe((logInOut) => {
-      console.log("this authservice is called");
+     // console.log("this authservice is called");
       this.logInOrOut = logInOut;
     });
 

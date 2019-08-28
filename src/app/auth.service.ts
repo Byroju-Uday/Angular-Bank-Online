@@ -11,8 +11,13 @@ export class AuthService {
   logInOrOut:BehaviorSubject<boolean>;
   usersArray:ILogin[];
   handle;
+  t:any;
+  authService:AuthService;
+  theTimeLimit:number = 3*60;
+
   constructor(private router:Router) {
     console.log("the current timestamp is "+ Math.floor(Date.now() / 1000));
+    this.idleLogout(this);
     this.logInOrOut = new BehaviorSubject<boolean>(false);
     if(localStorage.getItem("isLoggedIn")!=null)
     {
@@ -34,13 +39,12 @@ timering = (time)=>{
      alert("your session has been expired");
      //console.log("your session has been expired");
   },time*1000);
-  //setTimeout(()=> clearInterval(this.handle),0);
+
 }
 
 
 LogTheCustomerOrBanker(customerId:string,isCustomer:string){
   this.setLogin(true);
-  this.timering(400);
   console.log("this.authService.logInOrOut is "+this.logInOrOut);
    localStorage.setItem('isLoggedIn', "true");
    localStorage.setItem('token', customerId+"");
@@ -51,8 +55,6 @@ LogTheCustomerOrBanker(customerId:string,isCustomer:string){
   
 
   getLogInOrOut(): Observable<boolean> {
-   // return this.logInFlag.asObservable();
-   //return observableOf(this.logInOrOut);
    return this.logInOrOut.asObservable();
     
 }
@@ -79,27 +81,45 @@ public setLogin(newValue: boolean): void {
   
 
   logout(): void {
-
-    // var currentUsers:ILogin[] = JSON.parse(localStorage.getItem("customers"));
-    // if(currentUsers!=null)
-    // {
-    //       var userFound= currentUsers.find(currentUser=>
-    //         currentUser.userid = customerId
-    //         );
-    //       if(typeof userFound != "undefined")
-    //       {
-    //         var index = currentUsers.indexOf(userFound)
-    //         currentUsers.splice(index,1);
-    //         localStorage.setItem("customers",JSON.stringify(currentUsers));
-    //       }
-    // }
-     
-    if(this.handle!=null){
-      setTimeout(()=> clearInterval(this.handle),0);
-    }
     this.setLogin(false);
     localStorage.setItem('isLoggedIn', "false");
     localStorage.removeItem('token');
   } 
+  
+   idleLogout(outerThis:AuthService) :void {
+            
+            console.log("the idleLogout function is called from auth.service.ts");
+            window.onload = resetTimer;
+            window.onmousemove = resetTimer;
+            window.onmousedown = resetTimer;  // catches touchscreen presses as well      
+            window.ontouchstart = resetTimer; // catches touchscreen swipes as well 
+            window.onclick = resetTimer;      // catches touchpad clicks as well
+            window.onkeypress = resetTimer;   
+            window.addEventListener('scroll', resetTimer, true); // improved; see comments
+
+
+            function resetTimer(){
+              //console.log("the resetTimer() is called once");
+              clearTimeout(outerThis.t);
+              if(localStorage.getItem("isLoggedIn")=="true"){
+                    outerThis.t = setTimeout(()=>{
+                      console.log("the logout function is being called");
+                      outerThis.logout();
+                      outerThis.router.navigate(['/']);
+                     alert("Your session is expired !! Please relogin!!");
+                    }, outerThis.theTimeLimit*1000);  // time is in milliseconds
+
+              }
+        
+             // console.log("came inside the resetTimer() to set the time now...")
+              
+          }
+
+            
+
+    }
+  
+    
+    
 
 }
