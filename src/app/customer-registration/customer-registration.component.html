@@ -168,6 +168,7 @@
           name="aadharNo" 
           pattern="[0-9]{12}"
           placeholder="Aadhar Card"/>
+        </div>
           <div [hidden]="!aadharNo.errors?.pattern">
               <span class="badge badge-warning" >Invalid Aadhar Number</span>
           </div> 
@@ -175,6 +176,7 @@
             <div *ngIf="aadharNo.errors.required">
               <span>Aadhar Number is required</span>
             </div>
+          </div>
         </div>
         <div class="col-md-4">
         <div class="form-group">

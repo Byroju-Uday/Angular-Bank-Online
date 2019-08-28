@@ -11,18 +11,23 @@
         action="/accounts/delete" 
         method="POST">
         <div class="form-row">
-            <label for="accountId">Account ID</label>
+            <label for="accountId">
+              Account ID
+              <ng-container>
+                  <span #warningmsgaccount id="warningmsgaccount" name="warningmsgaccount" class="badge badge-warning" style="margin:5px;background-size: 10px;font-size: 10px"></span>
+              </ng-container>
+            </label>
             <input 
-              type="number" 
+              type="number" (keyup)="verifyAccountExists(accountId.value,warningmsgaccount.id)"
               ngModel
               required
-              #customerId="ngModel"
+              #accountId="ngModel"
               class="form-control" 
               name = "accountId" 
               id="accountId" 
               placeholder="accountId">
         </div>
         <br/>
-        <button type="submit" class="submit">Delete Account</button>
+        <button type="submit" class="submit" [disabled]="form.invalid || failedAccountVerification()">Delete Account</button>
       </form>
   </div>

@@ -27,4 +27,11 @@ export class AccountService {
     return this.httpClient.get<number>(this.ACCOUNT_API_DELETE_URL+"/"+accountId);
   }
   
+  getAccountById(accountNumber:number):Observable<Account[]>{
+    return this.httpClient.get<Account[]>(this.ACCOUNT_API_URL+"/"+accountNumber);
+  }
+  
+  getAccounts():Observable<Account[]>{
+    return this.httpClient.get<Account[]>(this.ACCOUNT_API_URL);
+  }
 }
