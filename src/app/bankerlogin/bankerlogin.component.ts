@@ -47,11 +47,12 @@ export class BankerloginComponent implements OnInit {
     if(ans) {
       console.log("the login details are correct ....navigating to /banker")
       this.bankerService.login=true;
-      this.authService.setLogin(true);
-       console.log("this.authService.logInOrOut is "+this.authService.logInOrOut);
-        localStorage.setItem('isLoggedIn', "true");
-        localStorage.setItem('token', data.bankerId+"");
-        localStorage.setItem('isCustomer',"false");
+      this.authService.LogTheCustomerOrBanker("admin","false");
+      // this.authService.setLogin(true);
+      //  console.log("this.authService.logInOrOut is "+this.authService.logInOrOut);
+      //   localStorage.setItem('isLoggedIn', "true");
+      //   localStorage.setItem('token', data.bankerId+"");
+      //   localStorage.setItem('isCustomer',"false");
       this.router.navigate(['/banker']);     
     }
     else{

@@ -42,11 +42,13 @@ export class CustomerloginComponent implements OnInit {
         console.log("coming into true condition");
        // this.authService.addCustomer(customerId,password);
        console.log("this.authService.logInOrOut is "+this.authService.logInOrOut);
-       this.authService.setLogin(true);
-       console.log("this.authService.logInOrOut is "+this.authService.logInOrOut);
-        localStorage.setItem('isLoggedIn', "true");
-        localStorage.setItem('token', data.customerId+"");
-        localStorage.setItem('isCustomer',"true");
+       this.authService.LogTheCustomerOrBanker(data.customerId+"","true");
+      //  this.authService.setLogin(true);
+      //  this.authService.timering(1000);
+      //  console.log("this.authService.logInOrOut is "+this.authService.logInOrOut);
+      //   localStorage.setItem('isLoggedIn', "true");
+      //   localStorage.setItem('token', data.customerId+"");
+      //   localStorage.setItem('isCustomer',"true");
         this.customerService.login=true;
         this.login1=true;
         this.router.navigate(['/customer',customerId]);
