@@ -8,7 +8,7 @@
 	</div>
 	<form ngForm #form="ngForm" (ngSubmit)="handleFormData(form.value)" action="/employee/register" method="POST"
 		modelAttribute="account">
-		<div class="row" style="padding-block: 20%">
+		<div class="row">
 			<div class="col-md-12">
 				<div class="form-group">
 					<label for="customerId">
@@ -16,7 +16,7 @@
 						<ng-container>
 							<span #warningmsgcustomer id="warningmsgcustomer" name="warningmsgcustomer"
 								class="badge badge-warning"
-								style="margin:15px;background-size: 20px;font-size: 15px"></span>
+								style="margin-left:5px;background-size: 10px;font-size: 10px"></span>
 						</ng-container>
 					</label>
 					<input 
@@ -31,13 +31,13 @@
 					id="customerId"
 					placeholder="Enter Customer Id" />
 				</div>
-				<div class="alert alert-danger" *ngIf="customerId.touched && customerId.invalid">
+				<div class="badge badge-warning" *ngIf="customerId.touched && customerId.invalid" style="margin-top: 1px;margin-bottom: 8px;">
 					<span *ngIf="customerId.errors.required">Customer ID is required</span>
 				</div>
 			</div>
 		</div>
 
-		<div class="row" style="padding-block: 20%">
+		<div class="row">
 			<div class="col-md-12">
 				<div class="form-group">
 					<label for="accountType">Account Type</label>
@@ -48,19 +48,19 @@
 						<option>Salary Account</option>
 					</select>
 				</div>
-				<div class="alert alert-danger" *ngIf="accountType.touched && accountType.invalid">
+				<div class="badge badge-warning" *ngIf="accountType.touched && accountType.invalid" style="margin-top: 1px;margin-bottom: 8px;">
 					<span *ngIf="accountType.errors.required">Account Type is required</span>
 				</div>
 			</div>
 		</div>
-		<div class="row" style="padding-block: 20%">
+		<div class="row">
 			<div class="col-md-12">
 				<div class="form-group">
 					<label for="accountBalance">
 						Account Balance
 						<ng-container>
 							<span #warningmsg id="warningmsg" name="warningmsg" class="badge badge-warning"
-								style="margin:15px;background-size: 20px;font-size: 15px"></span>
+							style="margin-left:5px;background-size: 10px;font-size: 10px"></span>
 						</ng-container>
 					</label>
 					<input 
@@ -75,9 +75,12 @@
 					id="accountBalance"
 					placeholder="Enter Account Balance" />
 				</div>
+				<div class="badge badge-warning" *ngIf="accountBalance.touched && accountBalance.invalid" style="margin-top: 1px;margin-bottom: 8px;">
+						<span *ngIf="accountBalance.errors.required">Account Balance is required</span>
+					</div>
 			</div>
 		</div>
-		<button type="submit" class="submit"
+		<button type="submit" class="submit" style="margin-top:5px;"
 			[disabled]="form.form.invalid ||  balanceInValid() || customerNotExists()">Create Account</button>
 	</form>
 </div>

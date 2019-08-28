@@ -43,15 +43,18 @@ export class AccountRegistrationComponent implements OnInit {
   minBalanceCheck(accountBalance, divName) {
     console.log("Inside minBalance method");
     this.accountBalance = accountBalance;
-    if (accountBalance < 5000) {
-      document.getElementById(divName).innerText = "Minimum Balance should be 5000";
-      return;
-    }
-    else {
+    if (accountBalance == null)
       document.getElementById(divName).innerText = "";
+    if (accountBalance != null) {
+      if (accountBalance < 5000) {
+        document.getElementById(divName).innerText = "Minimum Balance should be 5000";
+        return;
+      }
+      else {
+        document.getElementById(divName).innerText = "";
+      }
     }
   }
-
   balanceInValid(): boolean {
     if (this.accountBalance < 5000)
       return true;
@@ -62,6 +65,9 @@ export class AccountRegistrationComponent implements OnInit {
   customerExistCheck(customerId, divName) {
     let i: number;
     this.customerExists = 0;
+    if (customerId == null) {
+      document.getElementById(divName).innerText = "";
+    }
     if (customerId != null) {
       console.log("----Customer Object----")
       console.log(this.customers.length);
