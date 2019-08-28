@@ -36,23 +36,26 @@ export class AccountDeleteComponent implements OnInit {
 
   verifyAccountExists(accountNumber, divName) {
     let i: number;
-    this.accountExists=0;
-    if(accountNumber!=null){
-    for (i = 0; i < this.accounts.length; i++) {
-      if (accountNumber == this.accounts[i].accountNumber) {
-        this.accountExists = 1; break;
+    this.accountExists = 0;
+    if (accountNumber == null) {
+      document.getElementById(divName).innerText = "";
+    }
+    if (accountNumber != null) {
+      for (i = 0; i < this.accounts.length; i++) {
+        if (accountNumber == this.accounts[i].accountNumber) {
+          this.accountExists = 1; break;
+        }
+      }
+      if (this.accountExists == 0) {
+        document.getElementById(divName).innerText = "Account Does not exist";
+        this.inValidAccount = true;
+      }
+      else {
+        document.getElementById(divName).innerText = "";
+        this.inValidAccount = false;
       }
     }
-    if (this.accountExists == 0) {
-      document.getElementById(divName).innerText = "Account Does not exist";
-      this.inValidAccount = true;
-    }
-    else {
-      document.getElementById(divName).innerText = "";
-      this.inValidAccount = false;
-    }
   }
-}
   failedAccountVerification() {
     return this.inValidAccount;
   }

@@ -1,33 +1,38 @@
 <div class="container" id="deletion">
-    <h1>Account Deletion</h1>
-    <div id="alert" class="alert alert-success alert-dismissible fade show" role="alert">
-      <strong>Success!</strong> You have deleted customer's account successfully
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      </div>
-      <form ngForm #form = "ngForm" 
-        (ngSubmit)="handleDelete(form.value.accountId)"
-        action="/accounts/delete" 
-        method="POST">
-        <div class="form-row">
-            <label for="accountId">
-              Account ID
-              <ng-container>
-                  <span #warningmsgaccount id="warningmsgaccount" name="warningmsgaccount" class="badge badge-warning" style="margin:5px;background-size: 10px;font-size: 10px"></span>
-              </ng-container>
-            </label>
-            <input 
-              type="number" (keyup)="verifyAccountExists(accountId.value,warningmsgaccount.id)"
-              ngModel
-              required
-              #accountId="ngModel"
-              class="form-control" 
-              name = "accountId" 
-              id="accountId" 
-              placeholder="accountId">
-        </div>
-        <br/>
-        <button type="submit" class="submit" [disabled]="form.invalid || failedAccountVerification()">Delete Account</button>
-      </form>
+  <h1>Account Deletion</h1>
+  <div id="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success!</strong> You have deleted customer's account successfully
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
+  <form ngForm #form="ngForm" (ngSubmit)="handleDelete(form.value.accountId)" action="/accounts/delete" method="POST">
+    <div class="form-row">
+      <div class="col-md-12">
+        <label for="accountNumber">
+          Account Number
+          <ng-container>
+            <span #warningmsgaccount id="warningmsgaccount" name="warningmsgaccount" class="badge badge-warning"
+              style="margin:5px;background-size: 10px;font-size: 10px"></span>
+          </ng-container>
+        </label>
+        <input 
+        type="number" (keyup)="verifyAccountExists(accountId.value,warningmsgaccount.id)" 
+        ngModel 
+        required
+        #accountId="ngModel" 
+        class="form-control" 
+        name="accountNumber" 
+        id="accountNumber"
+        placeholder="Account Number">
+      </div>
+    </div>
+    <div class="badge badge-warning" *ngIf="accountId.touched && accountId.invalid"
+      style="margin-top: 10px;margin-bottom: 10px;">
+      <span *ngIf="accountId.errors.required">Account Number is required</span>
+    </div>
+    <br />
+    <button type="submit" class="submit" [disabled]="form.invalid || failedAccountVerification()">
+      Delete Account</button>
+  </form>
+</div>

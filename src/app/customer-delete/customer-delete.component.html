@@ -5,24 +5,35 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-    </div>
-    <form ngForm #form = "ngForm" 
-      (ngSubmit)="handleDelete(form.value.customerId)"
-      action="/employee/delete" 
-      method="POST">
-      <div class="form-row">
-          <label for="customerId">Customer ID</label>
-          <input 
-            type="number" 
-            ngModel
-            required
-            #customerId="ngModel"
-            class="form-control" 
-            name = "customerId" 
-            id="customerId" 
-            placeholder="CustomerId">
+  </div>
+  <form ngForm #form="ngForm" (ngSubmit)="handleDelete(form.value.customerId)" action="/employee/delete" method="POST">
+    <div class="form-row">
+      <div class="col-md-12">
+        <label for="customerId">
+          Customer ID
+          <ng-container>
+            <span #warningmsgcustomer id="warningmsgcustomer" name="warningmsgcustomer" class="badge badge-warning"
+              style="margin-top:10px;background-size: 10px;font-size: 12px"></span>
+          </ng-container>
+        </label>
+        <input 
+        type="number" 
+        (keyup)="verifyCustomerExists(customerId.value,warningmsgcustomer.id)" 
+        ngModel 
+        required
+        #customerId="ngModel" 
+        class="form-control" 
+        name="customerId" 
+        id="customerId" 
+        placeholder="CustomerId">
       </div>
-      <br/>
-      <button type="submit" class="submit">Delete Customer</button>
-    </form>
+    </div>
+    <div class="badge badge-warning" *ngIf="customerId.touched && customerId.invalid"
+      style="margin-top: 10px;margin-bottom: 10px;">
+      <span *ngIf="customerId.errors.required">Customer ID is required</span>
+    </div>
+    <br />
+    <button type="submit" [disabled]="form.invalid || failedCustomerValidation()" class="submit">
+      Delete Customer</button>
+  </form>
 </div>
