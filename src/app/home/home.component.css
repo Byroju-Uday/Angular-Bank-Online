@@ -29,9 +29,14 @@
     padding-right: 25px;
     padding-bottom: 25px;
     border: 4px;
+    border-color: black;
     height:500px;
     width:1400px;
-    background-color:#ff3636;
+    /* background-color:#ff3636; */
+}
+
+#middle-card{
+    box-shadow: 0 4px 8px 0 rgba(124, 28, 28, 0.2);
 }
 
 #middle{
@@ -44,6 +49,13 @@
     border-width: 2px;
     border-color: #cc0001;
     background-color: grey;
+}
+
+#heading{
+    color:black;
+    font-family: 'Roboto Slab', serif;
+    font-size: 70px;
+    padding:20px;
 }
 
 #footer{
@@ -75,6 +87,12 @@
 
 #footer-card p{
     color: white;
+}
+
+#footer-text{
+    font-size: 20px;
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif
 }
 
 .mapouter{
