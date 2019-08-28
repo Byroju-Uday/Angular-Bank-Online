@@ -58,7 +58,7 @@ export class MoneytransferComponent implements OnInit {
                 if(response === true)
                 {
                   v.classList.add("alert-success");
-                  document.querySelector("#message").innerHTML = `Transaction is done `;
+                  document.querySelector("#message").innerHTML = `Success! Transaction is done `;
                 
 
                 }
@@ -66,7 +66,7 @@ export class MoneytransferComponent implements OnInit {
   
                   v.classList.add("alert-danger");
                   
-                  document.querySelector("#message").innerHTML = `transaction is failed due to low balance or daily limit may exceded `;
+                  document.querySelector("#message").innerHTML = `Failed! transaction is failed due to low balance or daily limit may exceded `;
                   
                   
                 }
