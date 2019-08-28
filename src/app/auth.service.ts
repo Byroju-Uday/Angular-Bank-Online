@@ -40,7 +40,7 @@ timering = (time)=>{
 
 LogTheCustomerOrBanker(customerId:string,isCustomer:string){
   this.setLogin(true);
-  this.timering(60);
+  this.timering(400);
   console.log("this.authService.logInOrOut is "+this.logInOrOut);
    localStorage.setItem('isLoggedIn', "true");
    localStorage.setItem('token', customerId+"");

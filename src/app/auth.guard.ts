@@ -31,7 +31,7 @@ export class AuthGuard implements CanActivate {
               var timestamp = Number(localStorage.getItem("timestamp"));
               var cur_timeStamp = Math.floor(Date.now() / 1000);
 
-              if(cur_timeStamp-timestamp >= 60){
+              if(cur_timeStamp-timestamp >= 400){
                 this.authService.logout();
                 this.router.navigate(['/']);
                 return false;
