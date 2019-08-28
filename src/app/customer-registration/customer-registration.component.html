@@ -16,7 +16,9 @@
           <label for="customerId">
           CustomerId
           <ng-container>
-              <span #warningmsgcustomer id="warningmsgcustomer" name="warningmsgcustomer" class="badge badge-warning" style="margin:5px;background-size: 10px;font-size: 10px"></span>
+              <span #warningmsgcustomer id="warningmsgcustomer" name="warningmsgcustomer" 
+              class="badge badge-warning" 
+              style="margin:5px;background-size: 10px;font-size: 10px"></span>
           </ng-container>
           </label>
           <input 
@@ -28,14 +30,15 @@
           name = "customerId" 
           id="customerId" 
           placeholder="CustomerId">
-        </div>
-        <div class="alert alert-danger" *ngIf="customerId.touched && customerId.invalid">
+          <div class="badge badge-warning" *ngIf="customerId.touched && customerId.invalid">
             <span *ngIf="customerId.errors.required">Customer Id is required</span>
+          </div>
         </div>
       </div>
        <div class="col-md-6">
         <div class="form-group">
-          <label for="customerName">CustomerName</label>
+          <label for="customerName">CustomerName
+          </label>
           <input 
           type="text" 
           ngModel 
@@ -45,16 +48,17 @@
           name = "customerName" 
           id="customerName" 
           placeholder="CustomerName">
-        </div>
-        <div class="alert alert-danger" *ngIf="customerName.touched && customerName.invalid">
+          <div class="badge badge-warning" *ngIf="customerName.touched && customerName.invalid">
             <span *ngIf="customerName.errors.required">Customer Name is required</span>
+          </div>
         </div>
       </div>
       </div>
       <div class="row">
         <div class="col-md-6">
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password">Password
+          </label>
           <input 
           type="password"  
           class="form-control" 
@@ -64,12 +68,12 @@
           name="password" 
           id="password" 
           placeholder="Password">
-        </div>
-        <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+          <div class="badge badge-warning" *ngIf="password.touched && password.invalid">
             <span *ngIf="password.errors.required">Password is required</span>
+          </div>
         </div>
       </div>
-        <div class="col-md-6">
+      <div class="col-md-6">
         <div class="form-group">
             <label for="confirmpassword">Confirm Password
                 <ng-container>
@@ -85,13 +89,13 @@
             name="comfirmpassword" 
             id="confirmpassword" 
             placeholder="Confirm Password">
-          </div>
-          <div class="alert alert-danger" *ngIf="confirmpassword.touched && confirmpassword.invalid">
+            <div class="badge badge-warning" *ngIf="confirmpassword.touched && confirmpassword.invalid">
               <span *ngIf="confirmpassword.errors.required">Confirm Password is required</span>
+          </div>
           </div>
       </div>
     </div>
-      <div class="row">
+    <div class="row">
         <div class="col-md-6">
         <div class="form-group">
           <label for="emailId">Email
@@ -108,17 +112,18 @@
           #emailId="ngModel"
           name="emailId" 
           placeholder="Email ID"/>
-        </div>
           <div [hidden]="!emailId.errors?.pattern">
-              <span class="badge badge-warning" >Invalid Email Id</span>
+            <span class="badge badge-warning" >Invalid Email Id</span>
           </div> 
-          <div class="alert alert-danger" *ngIf="emailId.touched && emailId.invalid">
-              <span *ngIf="emailId.errors.required">Email ID is required</span>
-            </div>
+        <div class="badge badge-warning" *ngIf="emailId.touched && emailId.invalid">
+            <span *ngIf="emailId.errors.required">Email ID is required</span>
           </div>
+        </div>
+        </div>
         <div class="col-md-6">
         <div class="form-group">
-          <label for="dob">DOB</label>
+          <label for="dob">DOB
+          </label>
           <input type="date" 
           class="form-control" 
           ngModel 
@@ -127,16 +132,17 @@
           id="dob" 
           name="dob" 
           placeholder="Date of Birth">
-        </div>
-        <div class="alert alert-danger" *ngIf="dob.touched && dob.invalid">
+          <div class="badge badge-warning" *ngIf="dob.touched && dob.invalid">
             <span *ngIf="dob.errors.required">Date Of Birth is required</span>
+        </div>
         </div>
       </div>
     </div>
       <div class="row">
       <div class="col-md-12">
       <div class="form-group">
-        <label for="address">Address</label>
+        <label for="address">Address
+        </label>
         <input 
         type="text" 
         class="form-control" 
@@ -146,16 +152,17 @@
         id="address"  
         name="address" 
         placeholder="Address">
-      </div>
-      <div class="alert alert-danger" *ngIf="address.touched && address.invalid">
+        <div class="badge badge-warning" *ngIf="address.touched && address.invalid">
           <span *ngIf="address.errors.required">Address is required</span>
+      </div>
       </div>
     </div>
     </div>
       <div class="row">
         <div class="col-md-4">
         <div class="form-group">
-          <label for="aadharNo">Aadhar Number</label>
+          <label for="aadharNo">Aadhar Number
+          </label>
           <input 
           type="number" 
           class="form-control" 
@@ -168,19 +175,20 @@
           name="aadharNo" 
           pattern="[0-9]{12}"
           placeholder="Aadhar Card"/>
-        </div>
           <div [hidden]="!aadharNo.errors?.pattern">
-              <span class="badge badge-warning" >Invalid Aadhar Number</span>
-          </div> 
-          <div class="alert alert-danger" *ngIf="aadharNo.errors?.touched && aadharNo.errors.invalid">
-            <div *ngIf="aadharNo.errors.required">
-              <span>Aadhar Number is required</span>
-            </div>
+            <span class="badge badge-warning" >Invalid Aadhar Number</span>
+        </div> 
+        <div class="badge badge-warning" *ngIf="aadharNo.touched && aadharNo.invalid">
+          <div *ngIf="aadharNo.errors.required">
+            <span>Aadhar Number is required</span>
           </div>
+        </div>
+        </div>
         </div>
         <div class="col-md-4">
         <div class="form-group">
-          <label for="pancardNo">Pan Card</label>
+          <label for="pancardNo">Pan Card
+          </label>
           <input 
           type="text" 
           class="form-control" 
@@ -189,21 +197,22 @@
           required
           #pancardNo="ngModel"
           name="pancardNo" 
-          pattern="[A-Za-z]{5}\d{4}[A-Za-z]{1}"
+          pattern="[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}"
           placeholder="Pan Card">
           <div [hidden]="!pancardNo.errors?.pattern">
-              <span class="badge badge-warning">Invalid Pan card number</span>
+            <span class="badge badge-warning">Invalid Pan card number</span>
+        </div>
+        <div class="badge badge-warning" *ngIf="pancardNo.touched && pancardNo.invalid">
+          <div *ngIf="pancardNo.errors.required">
+            <span>Pan card Number is required</span>
           </div>
         </div>
-        <div class="alert alert-danger" *ngIf="pancardNo.errors.touched && pancardNo.errors.invalid">
-            <div *ngIf="pancardNo.errors.required">
-              <span>Aadhar Number is required</span>
-            </div>
-          </div>
+        </div>
       </div>
       <div class="col-md-4">
          <div class="form-group">
-          <label for="phoneNo">Phone Number</label>
+          <label for="phoneNo">Phone Number
+          </label>
           <input 
           type="number" 
           ngModel 
@@ -215,11 +224,13 @@
           pattern="[0-9]{10}"
           placeholder="Phone Number">
           <div [hidden]="!phoneNo.errors?.pattern">
-              <span class="badge badge-warning" >Invalid Phone Number</span>
-          </div> 
+            <span class="badge badge-warning" >Invalid Aadhar Number</span>
+        </div> 
+        <div class="badge badge-warning" *ngIf="phoneNo.touched && phoneNo.invalid">
+          <div *ngIf="phoneNo.errors.required">
+            <span>Phone Number is required</span>
+          </div>
         </div>
-        <div class="alert alert-danger" *ngIf="phoneNo.touched && phoneNo.invalid">
-            <span>Email address is mandatory</span>
         </div>
       </div>
     </div>
