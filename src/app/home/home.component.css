@@ -29,9 +29,14 @@
     padding-right: 25px;
     padding-bottom: 25px;
     border: 4px;
+    border-color: black;
     height:500px;
     width:1400px;
-    background-color:#ff3636;
+    /* background-color:#ff3636; */
+}
+
+#middle-card{
+    box-shadow: 0 4px 8px 0 rgba(26, 0, 0);
 }
 
 #middle{
@@ -46,8 +51,19 @@
     background-color: grey;
 }
 
+#heading{
+    color:black;
+    font-family: 'Roboto Slab', serif;
+    font-size: 70px;
+    padding:20px;
+}
+
 #footer{
     background-color: black;
+    padding-top:15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
 }
 
 .fa{
@@ -71,13 +87,20 @@
     color: #ffffe6;
     background-color: #cc0001;
     height: 220px;
+    box-shadow: 0 4px 8px 0 rgb(26, 0, 0);
 }
 
 #footer-card p{
     color: white;
 }
 
-.mapouter{
+#footer-text{
+    font-size: 20px;
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif
+}
+
+.maprouter{
     position:relative;
     text-align:right;
     height:300px;
@@ -86,6 +109,7 @@
 
 h6{
     color: white;
+    width: 300px;
 }
 
 .gmap_canvas{
@@ -93,4 +117,5 @@ h6{
      background:none!important;
      height:500px;
      width:600px;
+     box-shadow: 0 4px 8px 0 rgb(26, 0, 0);
 }
