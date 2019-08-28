@@ -28,14 +28,14 @@ export class AuthGuard implements CanActivate {
 
       if(localStorage.getItem("isLoggedIn")=="true"){
 
-              var timestamp = Number(localStorage.getItem("timestamp"));
-              var cur_timeStamp = Math.floor(Date.now() / 1000);
+              // var timestamp = Number(localStorage.getItem("timestamp"));
+              // var cur_timeStamp = Math.floor(Date.now() / 1000);
 
-              if(cur_timeStamp-timestamp >= 60){
-                this.authService.logout();
-                this.router.navigate(['/']);
-                return false;
-              }
+              // if(cur_timeStamp-timestamp >= 400){
+              //   this.authService.logout();
+              //   this.router.navigate(['/']);
+              //   return false;
+              // }
 
               if(this.current_name == "customer")
               {
@@ -77,16 +77,6 @@ export class AuthGuard implements CanActivate {
         return false;
       }
        
-    //  // console.log("Inside the verifyLogin of auth.guard"+ this.authService.loggedUser.isLoggedIn);
-    //     if(!this.isLoggedIn()){
-    //         this.router.navigate(['/customerLogin']);
-    //         //console.log("the verifyLogin from auth.guard "+ customerId + " is not present actually");
-    //         return false;
-    //     }
-    //     else{
-    //      // console.log("the verifyLogin from auth.guard "+ customerId + "present actually");
-    //         return true;
-    //     }
     }
     public isLoggedIn(): boolean{
         let status = false;
@@ -96,20 +86,6 @@ export class AuthGuard implements CanActivate {
         else{
           status = false;
         }
-
-        // var currentUsers:ILogin[] = JSON.parse(localStorage.getItem("customers"));
-        // if(currentUsers != null)
-        // {
-        //   console.log("the isLoggin from auth.guard "+ customerId + " currentUsers is not null actually");
-        //       var userFound= currentUsers.find(currentUser=>
-        //         currentUser.userid = customerId
-        //         );
-        //         if(typeof userFound != "undefined")
-        //         {
-        //           console.log("the isLoggedIn userFound is  not undefined actually");
-        //           status = true;
-        //         }
-        // }
         
         console.log("The status is "+ status);
         return status;

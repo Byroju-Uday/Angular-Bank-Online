@@ -22,6 +22,7 @@
             required
             #customerId="ngModel"
             class="form-control" 
+            disabled=""
             name = "customerId" 
             value="{{currentCustomer?.customerId }}"
             id="customerId" 
@@ -59,7 +60,7 @@
           <div class="form-group col-md-6">
             <label for="emailId">Email</label>
             <input 
-            type="email" 
+            type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
             class="form-control" 
             id="emailId" 
             ngModel 
@@ -68,6 +69,9 @@
             name="emailId" 
             value="{{currentCustomer?.emailId }}"
             placeholder="Email">
+            <div [hidden]="!email.errors?.pattern">
+                <span class="badge badge-warning" >Invalid Email Id</span>
+              </div> 
            </div>
           <div class="form-group col-md-6">
             <label for="dob">DateOfBirth</label>
@@ -100,16 +104,19 @@
             <label for="aadharNo">Aadhar Card</label>
             <input 
             type="number" 
+            pattern="[0-9]{12}"
             class="form-control" 
             ngModel 
             required
-            #inputAddress="ngModel"
+            #aadharNo="ngModel"
             id="aadharNo" 
             name="aadharNo" 
             value="{{currentCustomer?.aadharNo }}"
             placeholder="Aadhar Card">
-          </div>
-          
+            <div [hidden]="!aadharNo.errors?.pattern">
+                <span class="badge badge-warning" >Invalid Aadhar Number</span>
+            </div> 
+          </div>        
           <div class="form-group col-md-4">
             <label for="pancardNo">Pan Card</label>
             <input 
@@ -120,8 +127,12 @@
             required
             #pancardNo="ngModel"
             name="pancardNo" 
+            pattern="[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}"
             value="{{currentCustomer?.pancardNo }}"
             placeholder="Pan Card">
+            <div [hidden]="!pancardNo.errors?.pattern">
+                <span class="badge badge-warning">Invalid Pan card number</span>
+            </div>
           </div>
            <div class="form-group col-md-4">
             <label for="phoneNo">Phone Number</label>
@@ -133,8 +144,12 @@
             class="form-control" 
             id="phoneNo" 
             name="phoneNo" 
+            pattern="[0-9]{10}"
             value="{{currentCustomer?.phoneNo }}"
             placeholder="Phone Number">
+            <div [hidden]="!phoneNo.errors?.pattern">
+                <span class="badge badge-warning" >Invalid Phone Number</span>
+            </div> 
           </div>
         </div>
         <button type="submit" class="submit">Update</button>

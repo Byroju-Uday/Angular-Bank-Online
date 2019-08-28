@@ -64,12 +64,14 @@
           class="form-control" 
           ngModel 
           required
+          minlength="8"
           #password="ngModel"
           name="password" 
           id="password" 
           placeholder="Password">
           <div class="badge badge-warning" *ngIf="password.touched && password.invalid">
             <span *ngIf="password.errors.required">Password is required</span>
+            <span *ngIf="password.errors.minlength">Your password is too short</span>
           </div>
         </div>
       </div>
@@ -85,13 +87,15 @@
             class="form-control" 
             ngModel 
             required
+            minlength="8"
             #confirmpassword="ngModel"
             name="comfirmpassword" 
             id="confirmpassword" 
             placeholder="Confirm Password">
             <div class="badge badge-warning" *ngIf="confirmpassword.touched && confirmpassword.invalid">
               <span *ngIf="confirmpassword.errors.required">Confirm Password is required</span>
-          </div>
+              <span *ngIf="confirmpassword.errors.minlength">Your password is too short</span>
+            </div>
           </div>
       </div>
     </div>
@@ -224,7 +228,7 @@
           pattern="[0-9]{10}"
           placeholder="Phone Number">
           <div [hidden]="!phoneNo.errors?.pattern">
-            <span class="badge badge-warning" >Invalid Aadhar Number</span>
+            <span class="badge badge-warning" >Invalid Phone Number</span>
         </div> 
         <div class="badge badge-warning" *ngIf="phoneNo.touched && phoneNo.invalid">
           <div *ngIf="phoneNo.errors.required">
