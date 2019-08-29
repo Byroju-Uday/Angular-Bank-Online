@@ -1,11 +1,15 @@
-#table1{
-    background-color: #ff3636;
-    
+#table1:nth-child(odd){
+    background-color: #DADADA;
 }
+  
+#table1:nth-child(even){
+    background-color: white;
+}
+
 a {
-    color:white;
+    color:black;
 }
 #thead {
-    background-color: #BDC3C7;
-    color:black;
+    background-color: black;
+    color: #F7F7F7;
 }
