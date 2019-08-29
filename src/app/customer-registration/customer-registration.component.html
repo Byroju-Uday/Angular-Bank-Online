@@ -14,7 +14,7 @@
       <div class="col-md-6">
       <div class="form-group">
           <label for="customerId">
-          CustomerId
+          Customer Id
           <ng-container>
               <span #warningmsgcustomer id="warningmsgcustomer" name="warningmsgcustomer" 
               class="badge badge-warning" 
@@ -29,7 +29,7 @@
           class="form-control" 
           name = "customerId" 
           id="customerId" 
-          placeholder="CustomerId">
+          placeholder="Enter Customer Id">
           <div class="badge badge-warning" *ngIf="customerId.touched && customerId.invalid">
             <span *ngIf="customerId.errors.required">Customer Id is required</span>
           </div>
@@ -37,7 +37,7 @@
       </div>
        <div class="col-md-6">
         <div class="form-group">
-          <label for="customerName">CustomerName
+          <label for="customerName">Customer Name
           </label>
           <input 
           type="text" 
@@ -47,7 +47,7 @@
           class="form-control" 
           name = "customerName" 
           id="customerName" 
-          placeholder="CustomerName">
+          placeholder="Enter Customer Name">
           <div class="badge badge-warning" *ngIf="customerName.touched && customerName.invalid">
             <span *ngIf="customerName.errors.required">Customer Name is required</span>
           </div>
@@ -68,7 +68,7 @@
           #password="ngModel"
           name="password" 
           id="password" 
-          placeholder="Password">
+          placeholder="Enter Password">
           <div class="badge badge-warning" *ngIf="password.touched && password.invalid">
             <span *ngIf="password.errors.required">Password is required</span>
             <span *ngIf="password.errors.minlength">Your password is too short</span>
@@ -91,7 +91,7 @@
             #confirmpassword="ngModel"
             name="comfirmpassword" 
             id="confirmpassword" 
-            placeholder="Confirm Password">
+            placeholder="Re-enter Password">
             <div class="badge badge-warning" *ngIf="confirmpassword.touched && confirmpassword.invalid">
               <span *ngIf="confirmpassword.errors.required">Confirm Password is required</span>
               <span *ngIf="confirmpassword.errors.minlength">Your password is too short</span>
@@ -102,7 +102,7 @@
     <div class="row">
         <div class="col-md-6">
         <div class="form-group">
-          <label for="emailId">Email
+          <label for="emailId">Email Address
               <ng-container>
                   <span #warningmsgemail id="warningmsgemail" name="warningmsgemail" class="badge badge-warning" style="margin:5px;background-size: 10px;font-size: 10px"></span>
               </ng-container>
@@ -115,7 +115,7 @@
           required
           #emailId="ngModel"
           name="emailId" 
-          placeholder="Email ID"/>
+          placeholder="Enter Email Address"/>
           <div [hidden]="!emailId.errors?.pattern">
             <span class="badge badge-warning" >Invalid Email Id</span>
           </div> 
@@ -126,7 +126,7 @@
         </div>
         <div class="col-md-6">
         <div class="form-group">
-          <label for="dob">DOB
+          <label for="dob">Date Of Birth
           </label>
           <input type="date" 
           class="form-control" 
@@ -135,7 +135,7 @@
           #dob="ngModel"
           id="dob" 
           name="dob" 
-          placeholder="Date of Birth">
+          placeholder="Enter Date of Birth">
           <div class="badge badge-warning" *ngIf="dob.touched && dob.invalid">
             <span *ngIf="dob.errors.required">Date Of Birth is required</span>
         </div>
@@ -145,7 +145,7 @@
       <div class="row">
       <div class="col-md-12">
       <div class="form-group">
-        <label for="address">Address
+        <label for="address">Residential Address
         </label>
         <input 
         type="text" 
@@ -155,9 +155,9 @@
         #address="ngModel"
         id="address"  
         name="address" 
-        placeholder="Address">
+        placeholder="Enter Residential Address">
         <div class="badge badge-warning" *ngIf="address.touched && address.invalid">
-          <span *ngIf="address.errors.required">Address is required</span>
+          <span *ngIf="address.errors.required">Residential Address is required</span>
       </div>
       </div>
     </div>
@@ -165,7 +165,7 @@
       <div class="row">
         <div class="col-md-4">
         <div class="form-group">
-          <label for="aadharNo">Aadhar Number
+          <label for="aadharNo">Aadhar Card Number
           </label>
           <input 
           type="number" 
@@ -178,20 +178,20 @@
           id="aadharNo" 
           name="aadharNo" 
           pattern="[0-9]{12}"
-          placeholder="Aadhar Card"/>
+          placeholder="Enter Aadhar Card Number"/>
           <div [hidden]="!aadharNo.errors?.pattern">
-            <span class="badge badge-warning" >Invalid Aadhar Number</span>
+            <span class="badge badge-warning" >Invalid Aadhar Card Number</span>
         </div> 
         <div class="badge badge-warning" *ngIf="aadharNo.touched && aadharNo.invalid">
           <div *ngIf="aadharNo.errors.required">
-            <span>Aadhar Number is required</span>
+            <span>Aadhar Card Number is required</span>
           </div>
         </div>
         </div>
         </div>
         <div class="col-md-4">
         <div class="form-group">
-          <label for="pancardNo">Pan Card
+          <label for="pancardNo">Pan Card Number
           </label>
           <input 
           type="text" 
@@ -202,13 +202,13 @@
           #pancardNo="ngModel"
           name="pancardNo" 
           pattern="[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}"
-          placeholder="Pan Card">
+          placeholder="Enter Pan Card Number">
           <div [hidden]="!pancardNo.errors?.pattern">
-            <span class="badge badge-warning">Invalid Pan card number</span>
+            <span class="badge badge-warning">Invalid Pan Card number</span>
         </div>
         <div class="badge badge-warning" *ngIf="pancardNo.touched && pancardNo.invalid">
           <div *ngIf="pancardNo.errors.required">
-            <span>Pan card Number is required</span>
+            <span>Pan Card Number is required</span>
           </div>
         </div>
         </div>
@@ -226,7 +226,7 @@
           id="phoneNo" 
           name="phoneNo" 
           pattern="[0-9]{10}"
-          placeholder="Phone Number">
+          placeholder="Enter Phone Number">
           <div [hidden]="!phoneNo.errors?.pattern">
             <span class="badge badge-warning" >Invalid Phone Number</span>
         </div> 

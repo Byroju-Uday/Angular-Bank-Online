@@ -2,11 +2,11 @@
 <div class="card" style="padding:5px">
       <div class="row">
           <div class="col-md-3">
-              <label>FromDate</label>
+              <label>From Date</label>
               <input type="date" [(ngModel)]="fromDate" name="fromDate"/>
            </div>
            <div class="col-md-3">
-              <label>ToDate</label> <br>
+              <label>To Date</label> <br>
               <input type="date" [(ngModel)]="toDate" name="toDate"/>
             </div>
             <div class="col-md-3">
@@ -15,11 +15,11 @@
                 <input type="button" id="reset" value="Reset" class="btn btn-warning" (click)="filterReset()" />
             </div>
             <div class="col-md-3">
-                <label for="fromAccountId">AccountId<label></label>
+                <label for="fromAccountId">Account Id<label></label>
                 </label>
                 <select class="form-control"  [(ngModel)]="accountId"
                     required name="accountId" (change)="onAccountIdSelected()">
-                    <option>none</option>
+                    <option>Select Account Id</option>
                     <option *ngFor="let account of allAccounts">{{account.accountNumber}}</option>
       
                 </select>
@@ -52,8 +52,8 @@
                   <th>Credit/Debit</th>
                   <th>Transaction Amount</th>
                   <th>Updated Balance</th>
-                  <th>From AccountNo</th>
-                  <th>To AccountNo</th>
+                  <th>From Account No</th>
+                  <th>To Account No</th>
                 </tr>
               </thead>
               <tbody >

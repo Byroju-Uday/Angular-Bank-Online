@@ -10,19 +10,19 @@
     method="POST" >
     <div class="form-row">
       <div class="form-group col-md-6" >
-            <label for="typeOfTransaction">Type Of Transaction</label>
+            <label for="typeOfTransaction">Type of Transaction</label>
             <select class="form-control"  [(ngModel)]="typeOfTransaction" 
                 required  name="Select Transaction type">
-                 <option >none</option>
+                 <option>none</option>
               <option >Debit</option>
               
             </select>
       </div>
       <div class="form-group col-md-6" >
-          <label for="fromAccountId">From AccountNumber</label>
+          <label for="fromAccountId">From Account Number</label>
           <select class="form-control"  [(ngModel)]="fromAccountId"
               required name="Select Account Id to Debit">
-              <option>none</option>
+              <option>Select Account Id to Debit</option>
             <option *ngFor="let account of allAccounts">{{account.accountNumber}}</option>
 
           </select>
@@ -46,7 +46,7 @@
         required
         name="transactionAmount" 
         [(ngModel)]= "transactionAmount"
-        placeholder="Ente Transaction Amount">
+        placeholder="Enter Transaction Amount">
       </div>
     </div>
     <button type="submit" class="submit" (click)="doTransaction()">Transfer</button>
