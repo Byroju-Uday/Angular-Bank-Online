@@ -24,8 +24,9 @@ export class AccountRegistrationComponent implements OnInit {
       this.customers = customers);
   }
 
-  handleFormData(data: Account) {
-    console.log(data);
+  handleFormData(form) {
+    console.log(form);
+    let data = form.value;
     let account: Account = new Account();
     console.log("Inside Handle form")
     account.accountBalance = data.accountBalance;
@@ -34,10 +35,8 @@ export class AccountRegistrationComponent implements OnInit {
     this.accountService.saveAccount(account).subscribe(response => {
       console.log(response);
       document.getElementById("alert").style.display = "block";
-      setTimeout(() => {
-        this.router.navigate(['/banker']);
-      }, 1500);
     })
+    form.reset();
   }
 
   minBalanceCheck(accountBalance, divName) {

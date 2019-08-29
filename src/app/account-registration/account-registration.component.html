@@ -6,7 +6,7 @@
 			<span aria-hidden="true">&times;</span>
 		</button>
 	</div>
-	<form ngForm #form="ngForm" (ngSubmit)="handleFormData(form.value)" action="/employee/register" method="POST"
+	<form ngForm #form="ngForm" (ngSubmit)="handleFormData(form)" action="/employee/register" method="POST"
 		modelAttribute="account">
 		<div class="row">
 			<div class="col-md-12">

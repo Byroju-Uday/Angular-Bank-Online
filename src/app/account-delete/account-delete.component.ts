@@ -22,16 +22,14 @@ export class AccountDeleteComponent implements OnInit {
       this.accounts = accounts);
   }
 
-  handleDelete(data: number) {
-    let accountId: number = data;
-    this.accountService.deleteAccount(accountId).subscribe(response => {
+  handleDelete(form) {
+    let accountNumber = form.value.accountNumber;
+    this.accountService.deleteAccount(accountNumber).subscribe(response => {
       console.log('Response');
       console.log(response);
       document.getElementById("alert").style.display = "block";
-      setTimeout(() => {
-        this.router.navigate(['/banker']);
-      }, 1500);
     })
+    form.reset();
   }
 
   verifyAccountExists(accountNumber, divName) {

@@ -28,8 +28,9 @@ export class ModifySpecificCustomerComponent implements OnInit {
     });
     //console.log(this.currentCustomer);
   }
-  handleModify(data:Customer){
-    console.log(data);
+  handleModify(form){
+    console.log(form);
+    let data = form.value;
     let customer:Customer = new Customer();
     customer.customerId = data.customerId;
     customer.customerName = data.customerName;
@@ -45,7 +46,7 @@ export class ModifySpecificCustomerComponent implements OnInit {
       console.log(response);
       document.getElementById("alert").style.display="block";
       setTimeout(() => {
-        this.router.navigate(['/banker']);
+        this.router.navigate(['/banker/modifyCustomer']);
       }, 1500); 
     })
    }

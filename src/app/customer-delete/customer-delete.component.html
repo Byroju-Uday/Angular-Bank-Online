@@ -6,7 +6,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <form ngForm #form="ngForm" (ngSubmit)="handleDelete(form.value.customerId)" action="/employee/delete" method="POST">
+  <form ngForm #form="ngForm" (ngSubmit)="handleDelete(form)" action="/employee/delete" method="POST">
     <div class="form-row">
       <div class="col-md-12">
         <label for="customerId">

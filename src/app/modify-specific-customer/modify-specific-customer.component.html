@@ -10,7 +10,7 @@
         </div>
         <form 
         ngForm #form = "ngForm" 
-        (ngSubmit)="handleModify(form.value)"
+        (ngSubmit)="handleModify(form)"
         action="/employee/profile" 
         method="POST" modelAttribute="customer">
         <div class="form-row">

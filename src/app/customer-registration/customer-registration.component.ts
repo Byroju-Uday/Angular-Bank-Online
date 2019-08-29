@@ -37,13 +37,9 @@ export class CustomerRegistrationComponent {
       //console.log(this.router.navigate(['/banker/addCustomer']));
       console.log(response);
       document.getElementById("alert").style.display = "block";
-      setTimeout(() => {
-        location.reload();
-      }, 1500);
       //this.router.navigateByUrl('http://localhost:4200/banker');
     })
     form.reset();
-
   }
 
   verifyPasswordConfirmPassword(password, confirmpassword, divName) {
