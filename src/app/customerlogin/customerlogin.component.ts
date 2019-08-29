@@ -4,6 +4,7 @@ import { CustomerCredentials } from '../CustomerCredentials';
 import { CustomerService } from '../customer.service';
 import { stringify } from '@angular/core/src/util';
 import { AuthService } from '../auth.service';
+import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 
 
 @Component({
@@ -60,7 +61,8 @@ export class CustomerloginComponent implements OnInit {
     });
   }
 
-  functionclose() {
-      location.reload();
+  functionclose(form) {
+    document.getElementById("myModal").style.display="none";  
+    form.reset();
   }
 }

@@ -60,8 +60,9 @@ export class BankerloginComponent implements OnInit {
     }
   }
 
-  functionclose() {
-    location.reload();
+  functionclose(form) {
+    document.getElementById("myModal").style.display="none";  
+    form.reset();
     }
 
 }
