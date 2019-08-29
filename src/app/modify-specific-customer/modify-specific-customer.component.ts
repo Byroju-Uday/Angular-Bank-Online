@@ -46,7 +46,7 @@ export class ModifySpecificCustomerComponent implements OnInit {
       document.getElementById("alert").style.display="block";
       setTimeout(() => {
         this.router.navigate(['/banker']);
-      }, 5000); 
+      }, 1500); 
     })
    }
 }
