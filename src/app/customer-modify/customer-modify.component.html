@@ -8,15 +8,16 @@
 </ul> -->
 <!-- <h2>Customer Modification</h2>
 <h1>{{currentCustomer.customerId}}</h1> -->
+<h6>Please select the customer!!</h6>
   <table class="table">
     <thead class="thead-light">
       <tr>
-        <th scope="col">CustomerID</th>
-        <th scope="col">CustomerName</th>
+        <th id="thead" scope="col">CustomerID</th>
+        <th id="thead" scope="col">CustomerName</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let customer of customers">
+      <tr  id="thead" id="table1" *ngFor="let customer of customers">
         <td><a [routerLink]="['../modifySpecificCustomer',customer.customerId]" 
           routerLinkActive="router-link-active">  {{customer.customerId}}</a></td>
         <td><a [routerLink]="['../modifySpecificCustomer',customer.customerId]" 
