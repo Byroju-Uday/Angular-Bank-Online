@@ -26,12 +26,12 @@ export class CustomerRegistrationComponent {
     this.customer.customerId = data.customerId;
     this.customer.customerName = data.customerName;
     this.customer.address = data.address;
-    this.customer.aadharNo = data.aadharNo;
+    this.customer.aadharNo =Number(data.aadharNo);
     this.customer.dob = data.dob;
     this.customer.emailId = data.emailId;
     this.customer.pancardNo = data.pancardNo;
     this.customer.password = data.password;
-    this.customer.phoneNo = data.phoneNo;
+    this.customer.phoneNo = Number(data.phoneNo);
     this.customerService.saveCustomer(this.customer).subscribe(response => {
       console.log('Response');
       //console.log(this.router.navigate(['/banker/addCustomer']));

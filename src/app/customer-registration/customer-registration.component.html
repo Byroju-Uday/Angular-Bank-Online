@@ -168,7 +168,7 @@
           <label for="aadharNo">Aadhar Card Number
           </label>
           <input 
-          type="number" 
+          type="text" 
           class="form-control" 
           ngModel 
           required
@@ -199,6 +199,7 @@
           id="pancardNo" 
           ngModel 
           required
+          maxlength="10"
           #pancardNo="ngModel"
           name="pancardNo" 
           pattern="[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}"
@@ -218,13 +219,14 @@
           <label for="phoneNo">Phone Number
           </label>
           <input 
-          type="number" 
+          type="text" 
           ngModel 
           required
           #phoneNo="ngModel"
           class="form-control" 
           id="phoneNo" 
           name="phoneNo" 
+          maxlength="10"
           pattern="[0-9]{10}"
           placeholder="Enter Phone Number">
           <div [hidden]="!phoneNo.errors?.pattern">
