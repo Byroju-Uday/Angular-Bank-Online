@@ -57,7 +57,7 @@
                 </tr>
               </thead>
               <tbody >
-                <tr *ngFor="let transaction of temporary_Transactions | paginate: { itemsPerPage: pageCount, currentPage: p }">
+                <tr id="row-transaction" *ngFor="let transaction of temporary_Transactions | paginate: { itemsPerPage: pageCount, currentPage: p }">
                   <td>{{transaction.transactionId}}</td>
                   <td>{{transaction.date}}</td>
                   <td>{{transaction.typeOfTransaction}}</td>

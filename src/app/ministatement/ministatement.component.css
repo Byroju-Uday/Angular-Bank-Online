@@ -1,0 +1,7 @@
+#row-transaction:nth-child(odd){
+    background-color: #DADADA;
+}
+  
+#row-transaction:nth-child(even){
+    background-color: white;
+}
