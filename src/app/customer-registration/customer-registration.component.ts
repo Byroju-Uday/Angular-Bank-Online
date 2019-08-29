@@ -20,7 +20,8 @@ export class CustomerRegistrationComponent {
       this.customers = customers);
   }
 
-  handleFormData(data: Customer) {
+  handleFormData(form) {
+    let data = form.value;
     console.log(data);
     this.customer.customerId = data.customerId;
     this.customer.customerName = data.customerName;
@@ -41,6 +42,7 @@ export class CustomerRegistrationComponent {
       }, 5000);
       //this.router.navigateByUrl('http://localhost:4200/banker');
     })
+    form.reset();
 
   }
 
