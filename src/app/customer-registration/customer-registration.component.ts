@@ -39,7 +39,7 @@ export class CustomerRegistrationComponent {
       document.getElementById("alert").style.display = "block";
       setTimeout(() => {
         location.reload();
-      }, 5000);
+      }, 1500);
       //this.router.navigateByUrl('http://localhost:4200/banker');
     })
     form.reset();
